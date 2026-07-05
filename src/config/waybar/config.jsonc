@@ -27,7 +27,9 @@
       "power-profiles-daemon",
       // "bluetooth",
       "memory",
-      "cpu"
+      "cpu",
+      "temperature",
+      "custom/gpu-temp"
     ]
   },
   "group/right-2": {
@@ -84,6 +86,18 @@
   "cpu": {
     "interval": 2,
     "format": "\uf2db {usage}%",
+    "on-click": "~/.config/waybar/scripts/taskbar.sh --cpu"
+  },
+  "temperature": {
+    "interval": 3,
+    "format": " {temperatureC}°C",
+    "on-click": "~/.config/waybar/scripts/taskbar.sh --cpu"
+  },
+  "custom/gpu-temp": {
+    "exec": "~/.config/waybar/scripts/sysinfo/gpu.sh --temp",
+    "interval": 5,
+    "format": "󰾲 {}",
+    "tooltip": false,
     "on-click": "~/.config/waybar/scripts/taskbar.sh --cpu"
   },
   "memory": {

@@ -37,8 +37,11 @@ QtObject {
     readonly property string weatherRefresh:   isPortuguese ? "Atualizar" : "Refresh"
 
     // ── AppearanceCard ──
-    readonly property string btnWallpaper:    isPortuguese ? "Papel de Parede" : "Wallpaper"
-    readonly property string btnTheme:        isPortuguese ? "Tema" : "Theme"
+    readonly property string btnWallpaper:      isPortuguese ? "Papel de Parede" : "Wallpaper"
+    readonly property string btnTheme:          isPortuguese ? "Tema" : "Theme"
+    readonly property string sysinfoTitle:      isPortuguese ? "PAINEL INFO" : "INFO PANEL"
+    readonly property string sysinfoEnabled:    isPortuguese ? "Painel esquerdo ativo" : "Left panel active"
+    readonly property string sysinfoDisabled:   isPortuguese ? "Painel esquerdo inativo" : "Left panel inactive"
 
     // ── PowerCard ──
     readonly property var _ptProfiles: [

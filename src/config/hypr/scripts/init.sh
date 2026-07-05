@@ -39,8 +39,11 @@ run_waybars() {
   pkill -x waybar &
   sleep 0.5
 
-  # INFO System
-  waybar -c "$(paths_config "waybar/sysinfo.jsonc")" -s "$(paths_config "waybar/sysinfo.css")" &
+  # INFO System (respects sysinfo-state toggle)
+  if [ "$(cat "$HOME/.cache/waybar/sysinfo-state" 2>/dev/null)" != "disabled" ]; then
+    waybar -c "$(paths_config "waybar/sysinfo.jsonc")" -s "$(paths_config "waybar/sysinfo.css")" &
+    echo enabled > "$HOME/.cache/waybar/sysinfo-state" 2>/dev/null
+  fi
   sleep 1
 
   # Status Bar Top
