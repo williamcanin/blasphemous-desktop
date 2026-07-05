@@ -8,7 +8,7 @@ permalink: /themes/
 
 # Temas
 
-O projeto possui **12 temas** (HyprSlate, HyprAshen + 10 inspirados na série *Blasphemous* e *Blasphemous II*), com suporte completo a:
+O projeto possui **13 temas** (HyprSlate, HyprAshen + 11 inspirados na série *Blasphemous* e *Blasphemous II*), com suporte completo a:
 
 - Hyprland (bordas, sombras, gaps)
 - Waybar (barra superior + sysinfo)

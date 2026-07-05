@@ -20,7 +20,7 @@ O visual combina **Hyprland** com bordas discretas, blur, sombras, wallpaper, te
 ## Documentação
 
 - [Features e Componentes]({{ '/features/' | relative_url }}) — o que o ambiente oferece e quais ferramentas compõem o setup.
-- [Temas]({{ '/themes/' | relative_url }}) — os 12 temas (HyprSlate, HyprAshen + 10 inspirados em [Blasphemous I](https://thegamekitchen.com/blasphemous) e [Blasphemous II](https://www.blasphemous2game.com/)), como trocar e a estrutura de arquivos.
+- [Temas]({{ '/themes/' | relative_url }}) — os 13 temas (HyprSlate, HyprAshen + 11 inspirados em [Blasphemous I](https://thegamekitchen.com/blasphemous) e [Blasphemous II](https://www.blasphemous2game.com/)), como trocar e a estrutura de arquivos.
 - [Galeria de Temas]({{ '/gallery/' | relative_url }}) — prévia visual de cada tema.
 - [Uso no dia a dia]({{ '/usage/' | relative_url }}) — sidebar, scripts e atalhos de teclado.
 - [Instalação]({{ '/install/' | relative_url }}) — requisitos e como instalar (online ou offline).
