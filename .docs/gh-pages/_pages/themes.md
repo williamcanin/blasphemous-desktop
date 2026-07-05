@@ -38,6 +38,7 @@ O projeto possui **12 temas** (HyprSlate, HyprAshen + 10 inspirados na série *B
 | 10 | Blasphemous II - Repose Of The Silent One | Escuro teal/azulado |
 | 11 | Blasphemous II - Red Forest | Claro bege/cinza |
 | 12 | Blasphemous II - The Third Sin | Escuro navy/teal |
+| 13 | Blasphemous II - Main Menu | Escuro azul-cinza com acentos dourados (`#996548`). Baseado na tela de menu do jogo. |
 
 Veja o preview de cada tema na [Galeria de Temas]({{ '/gallery/' | relative_url }}).
 
@@ -115,6 +116,7 @@ blasphemous-mea-culpa.png
 blasphemous-II-repose-of-the-silent-one.jpg
 blasphemous-II-red-forest.png
 blasphemous-II-the-third-sin.jpg
+blasphemous-II-main-menu.png
 blasphemous-ten-piedad.jpg
 blasphemous-penitent.jpg
 blasphemous-requiem-aeternam.jpg

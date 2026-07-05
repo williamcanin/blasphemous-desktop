@@ -23,6 +23,7 @@ if [ -z "$THEME" ]; then
 10 - Blasphemous II - Repose Of The Silent One
 11 - Blasphemous II - Red Forest
 12 - Blasphemous II - The Third Sin
+13 - Blasphemous II - Main Menu
 EOF
   )
 
@@ -41,6 +42,7 @@ EOF
     "10 - Blasphemous II - Repose Of The Silent One") THEME="blasphemous-II-repose-of-the-silent-one" ;;
     "11 - Blasphemous II - Red Forest")           THEME="blasphemous-II-red-forest" ;;
     "12 - Blasphemous II - The Third Sin")        THEME="blashphemous-II-the-third-sin" ;;
+    "13 - Blasphemous II - Main Menu")             THEME="blasphemous-II-main-menu" ;;
     *) printf 'Invalid theme selection\n' >&2; exit 1 ;;
   esac
 fi

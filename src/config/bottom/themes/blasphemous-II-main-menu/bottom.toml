@@ -1,0 +1,21 @@
+# Blasphemous II Main Menu theme for Bottom
+
+[color]
+background = "#111316"
+foreground = "#DFE5EA"
+border = "#996548"
+text = "#DFE5EA"
+selected_text = "#111316"
+selected_bg = "#996548"
+
+[colors]
+cpu_color = "#996548"
+mem_color = "#627D8A"
+swap_color = "#4B596A"
+rx_color = "#B0BFCB"
+tx_color = "#DFE5EA"
+rx_total_color = "#718994"
+tx_total_color = "#B0BFCB"
+process_color = "#DFE5EA"
+process_highlighted_color = "#E9EDF0"
+average_cpu_color = "#B0BFCB"

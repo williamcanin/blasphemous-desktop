@@ -1,0 +1,10 @@
+/* theme: blasphemous-II-main-menu */
+* {
+    th-bg:            rgba(17, 19, 22, 88%);
+    th-fg:            rgb(153, 101, 72);
+    th-fg-selected:   rgba(223, 229, 234, 100%);
+    th-row-alt:       rgba(153, 101, 72, 7%);
+    th-row-selected:  rgba(38, 41, 51, 0.88);
+    th-border-color:  rgba(153, 101, 72, 0.36);
+    th-separator:     rgba(105, 91, 87, 0.52);
+}
