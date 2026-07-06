@@ -20,7 +20,7 @@
     progress_bar_min_width = 340
     progress_bar_max_width = 340
     progress_bar_corner_radius = 1
-    highlight = "#996548"
+    highlight = "#757575"
 
     indicate_hidden = yes
     transparency = 10
@@ -29,7 +29,7 @@
     horizontal_padding = 14
     text_icon_padding = 10
     frame_width = 1
-    frame_color = "#996548"
+    frame_color = "#757575"
     gap_size = 6
     separator_color = frame
     sort = yes
@@ -87,22 +87,22 @@
 [urgency_low]
     background = "#101010"
     foreground = "#aaaaaa"
-    frame_color = "#996548"
+    frame_color = "#757575"
     timeout = 4
     default_icon = dialog-information
 
 [urgency_normal]
     background = "#131313"
     foreground = "#e0e0e0"
-    frame_color = "#996548"
+    frame_color = "#757575"
     timeout = 6
     default_icon = dialog-information
 
 [urgency_critical]
     background = "#1a0a0a"
     foreground = "#ffffff"
-    frame_color = "#996548"
-    highlight = "#996548"
+    frame_color = "#757575"
+    highlight = "#757575"
     timeout = 0
     default_icon = dialog-error
 
@@ -112,7 +112,7 @@
     appname = "Hyprshot"
     background = "#101a1a"
     foreground = "#cccccc"
-    frame_color = "#996548"
+    frame_color = "#757575"
     timeout = 4
     icon = camera-photo
 
@@ -120,7 +120,7 @@
     appname = "volume"
     background = "#101010"
     foreground = "#aaaaaa"
-    frame_color = "#996548"
+    frame_color = "#757575"
     timeout = 2
     icon = audio-volume-high
 
@@ -128,7 +128,7 @@
     appname = "gpu-screen-recorder"
     background = "#1a0f10"
     foreground = "#e0e0e0"
-    frame_color = "#996548"
+    frame_color = "#757575"
     timeout = 5
     icon = media-record
 
@@ -136,7 +136,7 @@
     appname = "NetworkManager"
     background = "#101318"
     foreground = "#cccccc"
-    frame_color = "#996548"
+    frame_color = "#757575"
     timeout = 5
     icon = network-wireless
 
@@ -144,14 +144,14 @@
     appname = "Spotify"
     background = "#0d1a10"
     foreground = "#cccccc"
-    frame_color = "#996548"
-    highlight = "#996548"
+    frame_color = "#757575"
+    highlight = "#757575"
     timeout = 4
 
 [discord]
     appname = "discord"
     background = "#10111a"
     foreground = "#cccccc"
-    frame_color = "#996548"
-    highlight = "#996548"
+    frame_color = "#757575"
+    highlight = "#757575"
     timeout = 6

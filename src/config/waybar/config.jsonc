@@ -3,11 +3,11 @@
   "fixed-center": false,
   "position": "top",
   "mod": "dock",
-  "margin-top": 5,
+  "margin-top": 0,
   "height": 28,
-  "margin-left": 20,
-  "margin-right": 20,
-  "margin-bottom": -8,
+  "margin-left": 0,
+  "margin-right": 0,
+  "margin-bottom": 3,
 
   "group/left1": {
     "orientation": "inherit",
