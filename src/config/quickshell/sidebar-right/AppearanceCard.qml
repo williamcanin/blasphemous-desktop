@@ -64,10 +64,7 @@ BaseCard {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onClicked: {
-                    toggleSysinfoProc.turnOn = !sysinfoEnabled
-                    toggleSysinfoProc.running = true
-                }
+                onClicked: toggleProc.running = true
             }
         }
 
@@ -106,7 +103,7 @@ BaseCard {
 
     Timer {
         interval: 3000; running: true; repeat: true; triggeredOnStart: true
-        onTriggered: checkSysinfoProc.running = true
+        onTriggered: checkProc.running = true
     }
 
     Process {
@@ -116,32 +113,23 @@ BaseCard {
 
     Process {
         id: themeProc
-        command: ["sh", "-c", "$HOME/.config/my-environment/sh/theme-switch.sh"
-        ]
+        command: ["sh", "-c", "$HOME/.config/my-environment/sh/theme-switch.sh"]
         onExited: Theme.reloadActiveTheme()
     }
 
     Process {
-        id: checkSysinfoProc
-        command: ["bash", "-c", "[ -f $HOME/.cache/waybar/sysinfo-state ] && cat $HOME/.cache/waybar/sysinfo-state || echo enabled"]
+        id: toggleProc
+        command: ["sh", "-c", "$HOME/.config/waybar/scripts/sysinfo-toggle.sh toggle"]
         stdout: SplitParser {
-            onRead: data => {
-                sysinfoEnabled = data.trim() === "enabled"
-            }
+            onRead: data => sysinfoEnabled = data.trim() === "enabled"
         }
     }
 
     Process {
-        id: toggleSysinfoProc
-        property bool turnOn: true
-        command: ["bash", "-c", turnOn
-            ? "echo enabled > $HOME/.cache/waybar/sysinfo-state; pkill -f 'waybar.*sysinfo' 2>/dev/null; sleep 0.3; waybar -c $HOME/.config/waybar/sysinfo.jsonc -s $HOME/.config/waybar/sysinfo.css &"
-            : "echo disabled > $HOME/.cache/waybar/sysinfo-state; pkill -f 'waybar.*sysinfo'"
-        ]
-        onExited: {
-            if (exitCode === 0) {
-                sysinfoEnabled = turnOn
-            }
+        id: checkProc
+        command: ["sh", "-c", "$HOME/.config/waybar/scripts/sysinfo-toggle.sh status"]
+        stdout: SplitParser {
+            onRead: data => sysinfoEnabled = data.trim() === "enabled"
         }
     }
 }
