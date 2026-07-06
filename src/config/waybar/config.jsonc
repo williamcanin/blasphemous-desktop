@@ -1,5 +1,6 @@
 {
   "reload_style_on_change": true,
+  "fixed-center": false,
   "position": "top",
   "mod": "dock",
   "margin-top": 5,
@@ -22,10 +23,10 @@
   },
   "group/right-1": {
     "orientation": "inherit",
+    "spacing": 2,
     "modules": ["network",
       "hyprland/language",
       "power-profiles-daemon",
-      // "bluetooth",
       "memory",
       "cpu",
       "custom/cpu-temp",

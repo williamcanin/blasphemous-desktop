@@ -230,6 +230,10 @@ tooltip label {
   border-bottom: 1px solid @th-foreground2;
 }
 
+#language {
+  min-width: 30px;
+}
+
 #custom-settings {
   color: @th-foreground;
   padding: 0 6px;
