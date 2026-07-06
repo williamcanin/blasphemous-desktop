@@ -14,9 +14,9 @@ return {
   rounding = 8,
   rounding_power = 2,
   -- Layout
-  gaps_in = 3,
-  gaps_out = 17,
-  border_size = 1,
+  gaps_in = 6,
+  gaps_out = 18,
+  border_size = 2,
   file_manager_opacity = "0.94 0.94",
   term_opacity = "0.95 1",
 }
