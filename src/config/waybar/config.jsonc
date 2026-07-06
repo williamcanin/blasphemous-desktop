@@ -28,7 +28,7 @@
       // "bluetooth",
       "memory",
       "cpu",
-      "temperature",
+      "custom/cpu-temp",
       "custom/gpu-temp"
     ]
   },
@@ -88,17 +88,18 @@
     "format": "\uf2db {usage}%",
     "on-click": "~/.config/waybar/scripts/taskbar.sh --cpu"
   },
-  "temperature": {
+  "custom/cpu-temp": {
+    "exec": "~/.config/waybar/scripts/sysinfo/cpu-temp.sh",
     "interval": 3,
-    "format": " {temperatureC}°C",
-    "on-click": "~/.config/waybar/scripts/taskbar.sh --cpu"
+    "format": " {}°C",
+    "on-click": "~/.config/waybar/scripts/taskbar.sh --cpu-temp"
   },
   "custom/gpu-temp": {
     "exec": "~/.config/waybar/scripts/sysinfo/gpu.sh --temp",
     "interval": 5,
     "format": "󰾲 {}",
     "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/taskbar.sh --cpu"
+    "on-click": "~/.config/waybar/scripts/taskbar.sh --gpu-temp"
   },
   "memory": {
     "interval": 2,

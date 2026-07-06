@@ -103,7 +103,9 @@ window#waybar.empty #window {
 #pulseaudio,
 #power-profiles-daemon,
 #custom-settings,
-#custom-power {
+#custom-power,
+#custom-cpu-temp,
+#custom-gpu-temp {
   /* Minimal: 12px, Medium (Recommended): 14px */
   font-size: 14px;
 }
@@ -141,7 +143,9 @@ tooltip label {
 #custom-recording,
 #window,
 #power-profiles-daemon,
-#custom-power
+#custom-power,
+#custom-cpu-temp,
+#custom-gpu-temp
 {
   border-bottom: 1px solid @transparent;
 }
@@ -159,7 +163,9 @@ tooltip label {
 #cpu,
 #clock,
 #custom-settings,
-#custom-power
+#custom-power,
+#custom-cpu-temp,
+#custom-gpu-temp
 {
   /* top right bottom left */
   margin: 0px 4px 0px 4px;
@@ -217,7 +223,9 @@ tooltip label {
 #network:hover,
 #pulseaudio:hover,
 #custom-settings:hover,
-#custom-power:hover {
+#custom-power:hover,
+#custom-cpu-temp:hover,
+#custom-gpu-temp:hover {
   color: @th-foreground2;
   border-bottom: 1px solid @th-foreground2;
 }

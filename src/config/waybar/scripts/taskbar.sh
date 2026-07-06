@@ -106,6 +106,18 @@ case $1 in
     term "cpu"
     go_workspace "$CURRENT_WS"
     ;;
+  --cpu-temp)
+    "$TERM" --class cpu-temp-popup -e sh -c 'sensors; echo; read -p "Pressione Enter para fechar..."'
+    go_workspace "$CURRENT_WS"
+    ;;
+  --gpu-temp)
+    if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi -L >/dev/null 2>&1; then
+      "$TERM" --class gpu-temp-popup -e watch -n 1 nvidia-smi
+    else
+      "$TERM" --class gpu-temp-popup -e sh -c 'sensors; echo; read -p "Pressione Enter para fechar..."'
+    fi
+    go_workspace "$CURRENT_WS"
+    ;;
   --power-menu)
     power_menu
     ;;
