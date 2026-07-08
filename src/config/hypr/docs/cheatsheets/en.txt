@@ -9,7 +9,8 @@ SHORTCUT                               DESCRIPTION
 02 - SUPER (Win) + Shift + Space      = Enable/Disable Floating Window
 03 - SUPER (Win) +                = Focus tiled window by direction
 04 - SUPER (Win) + Ctrl +           = Cycle focus between windows (tiled and floating)
-05 - Ctrl + Alt +                   = Moving between work areas
+05 - Ctrl + Alt +    or             = Moving between work areas
+     Mouse 4 / Mouse 5
 06 - ALT + Tab                        = Cycle through all windows
 07 - SUPER (Win) + r                  = Enter window resize mode (floating window only)
                                   = Resize
