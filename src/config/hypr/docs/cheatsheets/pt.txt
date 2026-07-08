@@ -9,7 +9,8 @@ ATALHO                                 DESCRIÇÃO
 02 - SUPER (Win) + Shift + Space      = Ativa/Desativa Janela flutuante
 03 - SUPER (Win) +                = Focar janela tileada por direção
 04 - SUPER (Win) + Ctrl +           = Ciclar foco entre janelas (tileadas e flutuantes)
-05 - Ctrl + Alt +                   = Circular entre áreas de trabalho
+05 - Ctrl + Alt +    ou             = Circular entre áreas de trabalho
+     Mouse 4 / Mouse 5
 06 - ALT + Tab                        = Circular entre todas janelas
 07 - SUPER (Win) + r                  = Entrar modo redimensionar janela (apenas em janela flutuante)
                                   = Redimencionar

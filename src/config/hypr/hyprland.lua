@@ -294,6 +294,7 @@ hl.bind(mod .. " + Space", hl.dsp.exec_cmd("nautilus"))
 
 -- Sidebar Settings ----------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + comma", hl.dsp.exec_cmd("qs -c sidebar-right ipc call sidebar toggle"))
+hl.bind("mouse:274", hl.dsp.exec_cmd("qs -c sidebar-right ipc call sidebar toggle"))
 
 -- Wallpaper Picker ----------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + Y", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/wallpaper-pick.sh"))
@@ -439,7 +440,7 @@ local function get_sorted_workspaces()
   return ws_ids
 end
 
-hl.bind("CTRL + ALT + right", function()
+local function workspace_next()
   local active = hl.get_active_window()
   if not active then
     return
@@ -452,9 +453,9 @@ hl.bind("CTRL + ALT + right", function()
       break
     end
   end
-end)
+end
 
-hl.bind("CTRL + ALT + left", function()
+local function workspace_prev()
   local active = hl.get_active_window()
   if not active then
     return
@@ -467,7 +468,12 @@ hl.bind("CTRL + ALT + left", function()
       break
     end
   end
-end)
+end
+
+hl.bind("CTRL + ALT + right", workspace_next)
+hl.bind("CTRL + ALT + left", workspace_prev)
+hl.bind("mouse:276", workspace_next)
+hl.bind("mouse:275", workspace_prev)
 
 -- Move window float ---------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
