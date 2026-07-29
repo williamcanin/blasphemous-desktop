@@ -46,7 +46,7 @@ PACKAGES="
   xarchiver zip just libqalculate fontconfig qt5-qtquickcontrols2
   kvantum nwg-look qt5ct qt6ct qt6-qtdeclarative qt6-qttools
   file-roller pwvucontrol wtype fastfetch polkit-gnome bluez
-  bluez-utils blueman imv
+  bluez-utils blueman imv hyprpolkitagent
 "
 
 HYPERSHUTDOWN_REPO="https://github.com/hyprwm/hyprshutdown.git"
