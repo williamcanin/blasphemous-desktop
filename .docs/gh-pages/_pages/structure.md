@@ -23,7 +23,8 @@ src/
     wlogout/             Tela de logout
     kitty/               Terminal principal com suporte a temas
     foot/                Terminal alternativo
-    yazi/                File manager TUI com flavors e keymaps custom
+    superfile/           File manager TUI padrão (spf), config, hotkeys e temas
+    yazi/                File manager TUI alternativo com flavors e keymaps custom
     dunst/               Notificações com regras por aplicativo
     btop/ bottom/        Monitores de sistema com temas
     snappy-switcher/     Alternância de janelas Alt+Tab
@@ -53,7 +54,7 @@ Ao iniciar o Hyprland, `init.sh --started` sobe:
 - `qs -c sidebar-right` (Quickshell sidebar)
 - `dunst`, `snappy-switcher --daemon`
 - `cliphist` watchers (texto e imagem)
-- `polkit-gnome-authentication-agent-1`
+- `hyprpolkitagent`
 
 ### Login via TTY
 

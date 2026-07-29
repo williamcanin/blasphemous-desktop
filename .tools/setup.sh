@@ -30,7 +30,7 @@
 set -e
 
 # --- VERSION ------------------------------------------------------------------
-VERSION="0.2.0 (Blasphemous)"
+VERSION="0.2.1 (Blasphemous)"
 
 # --- Variables ----------------------------------------------------------------
 USED_SHELL="/usr/bin/zsh"
@@ -406,7 +406,7 @@ ARCH_PACKAGES="
   smog-bin xarchiver zip just libqalculate fontconfig qt5-quickcontrols2
   kvantum nwg-look qt5ct qt6ct qt6-declarative qt6-tools cosmic-files
   cosmic-settings file-roller pwvucontrol wtype fastfetch bluez polkit-gnome
-  bluez-utils blueman imv hyprpolkitagent zsh-autocomplete zsh-autosuggestions fzf-tab
+  bluez-utils blueman imv hyprpolkitagent superfile zsh-autocomplete zsh-autosuggestions fzf-tab
   zsh-syntax-highlighting
 "
 
@@ -466,7 +466,7 @@ FEDORA_PACKAGES="
   xarchiver zip just libqalculate fontconfig qt5-qtquickcontrols2
   kvantum nwg-look qt5ct qt6ct qt6-qtdeclarative qt6-qttools
   file-roller pwvucontrol wtype fastfetch polkit-gnome bluez
-  bluez-utils blueman imv hyprpolkitagent
+  bluez-utils blueman imv hyprpolkitagent superfile
 "
 HYPERSHUTDOWN_REPO="https://github.com/hyprwm/hyprshutdown.git"
 

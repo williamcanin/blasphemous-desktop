@@ -28,6 +28,7 @@ permalink: /features/
 - Áudio via PipeWire/WirePlumber, controle por `wpctl`, `pamixer` e `pwvucontrol`.
 - Suporte a atalhos multimídia, brilho, color picker, emoji picker e navegador padrão.
 - Terminais Kitty e Foot com JetBrainsMono Nerd Font, Font Awesome e temas por tema ativo.
+- Superfile (`spf`) como file manager padrão, aberto em Kitty com `Super + Space` e integrado ao sistema de temas.
 - Yazi com flavors customizados (flexoki-dark, flexoki-fragment-of-guilt, repose-of-the-silent-one).
 - Configurações Wayland para Firefox, Electron, SDL2, Java, LibreOffice e cursor.
 - Tema GTK escuro com Graphite-teal-Dark e Mint-Y-Teal para ícones aplicado pelo instalador. No HyprAshen, `Mod+F5` alterna entre GTK dark/light e adapta waybar, quickshell, rofi e wallpaper simultaneamente.
@@ -48,8 +49,9 @@ permalink: /features/
 | Wofi | Launcher alternativo |
 | Dunst | Notificações |
 | Kitty / Foot | Terminais |
-| Yazi | File manager TUI com flavors temáticos |
-| Nautilus | File manager gráfico |
+| Superfile (`spf`) | File manager TUI padrão |
+| Yazi | File manager TUI alternativo com flavors temáticos |
+| Nautilus | File manager gráfico opcional |
 | Snappy Switcher | Alternância de janelas com `Alt+Tab` |
 | PipeWire / WirePlumber | Áudio |
 | Cliphist / wl-clipboard | Histórico de clipboard |

@@ -58,6 +58,7 @@ BTOP_THEMES="${HOME}/.config/btop/themes"
 BOTTOM_THEMES="${HOME}/.config/bottom/themes"
 YAZI_THEMES="${HOME}/.config/yazi/themes"
 SNAPPY_THEMES="${HOME}/.config/snappy-switcher/themes"
+SUPERFILE_THEMES="${HOME}/.config/superfile/theme"
 
 if [ -z "$THEME" ]; then
   printf 'Usage: theme-switch <theme-name>\n' >&2
@@ -79,6 +80,11 @@ for _dir in \
     exit 1
   fi
  done
+
+if [ ! -f "$SUPERFILE_THEMES/$THEME.toml" ]; then
+  printf 'Error: superfile theme not found: %s\n' "$SUPERFILE_THEMES/$THEME.toml" >&2
+  exit 1
+fi
 
 printf '%s' "$THEME" > "$ACTIVE_FILE"
 
@@ -169,6 +175,11 @@ fi
 
 if [ -f "$YAZI_THEMES/$THEME/theme.toml" ]; then
   cp "$YAZI_THEMES/$THEME/theme.toml" "$(paths_config yazi/theme.toml)"
+fi
+
+_superfile_conf="$(paths_config superfile/config.toml)"
+if [ -f "$_superfile_conf" ]; then
+  sed -i "s|^theme = .*|theme = \"${THEME}\"|" "$_superfile_conf"
 fi
 
 # Remove old lock screen image

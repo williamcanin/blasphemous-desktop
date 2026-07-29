@@ -81,7 +81,7 @@ A sidebar carrega o tema dinamicamente — ao trocar o tema, as cores são atual
 | Atalho | Ação |
 | --- | --- |
 | `Super + Enter` | Abrir Kitty |
-| `Super + Space` | Abrir Nautilus |
+| `Super + Space` | Abrir Superfile (`spf`) |
 | `Super + D` | Abrir launcher Rofi |
 | `Super + B` | Abrir navegador padrão |
 | `Super + Q` | Fechar janela |
