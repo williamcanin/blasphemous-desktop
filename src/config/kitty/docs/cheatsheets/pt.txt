@@ -7,7 +7,7 @@ ATALHO                        DESCRIÇÃO
 
 01 - Ctrl + Shift + c       = Copiar texto
 02 - Ctrl + Shift + v       = Colar texto
-03 - Ctrl + n               = Nova aba
+03 - Ctrl + Alt + n         = Nova aba
 04 - Ctrl + q               = Fechar aba
 
 Atalhos de Splits »
