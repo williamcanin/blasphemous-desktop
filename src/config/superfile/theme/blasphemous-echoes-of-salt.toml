@@ -1,0 +1,47 @@
+# theme: blasphemous-echoes-of-salt
+
+code_syntax_highlight = "catppuccin-macchiato"
+
+full_screen_fg = "#ffffff"
+full_screen_bg = "#181818"
+gradient_color = ["#3aa99f", "#995a98"]
+
+file_panel_fg = "#ffffff"
+file_panel_bg = "#181818"
+file_panel_border = "#303030"
+file_panel_border_active = "#3aa99f"
+file_panel_top_directory_icon = "#3aa99f"
+file_panel_top_path = "#67cac2"
+file_panel_item_selected_fg = "#ffffff"
+file_panel_item_selected_bg = "#262626"
+
+footer_fg = "#ffffff"
+footer_bg = "#181818"
+footer_border = "#303030"
+footer_border_active = "#3aa99f"
+
+sidebar_fg = "#ffffff"
+sidebar_bg = "#181818"
+sidebar_title = "#67cac2"
+sidebar_border = "#303030"
+sidebar_border_active = "#3aa99f"
+sidebar_item_selected_fg = "#ffffff"
+sidebar_item_selected_bg = "#262626"
+sidebar_divider = "#303030"
+
+modal_fg = "#ffffff"
+modal_bg = "#181818"
+modal_border_active = "#3aa99f"
+modal_cancel_fg = "#ffffff"
+modal_cancel_bg = "#441743"
+modal_confirm_fg = "#181818"
+modal_confirm_bg = "#3aa99f"
+
+help_menu_hotkey = "#3aa99f"
+help_menu_title = "#67cac2"
+
+cursor = "#ffffff"
+correct = "#3aa99f"
+error = "#995a98"
+hint = "#67cac2"
+cancel = "#995a98"

@@ -1,0 +1,47 @@
+# theme: blashphemous-II-the-third-sin
+
+code_syntax_highlight = "catppuccin-macchiato"
+
+full_screen_fg = "#ffffff"
+full_screen_bg = "#171e26"
+gradient_color = ["#a0c3bc", "#57292e"]
+
+file_panel_fg = "#ffffff"
+file_panel_bg = "#171e26"
+file_panel_border = "#252e3a"
+file_panel_border_active = "#a0c3bc"
+file_panel_top_directory_icon = "#a0c3bc"
+file_panel_top_path = "#a0c3bc"
+file_panel_item_selected_fg = "#ffffff"
+file_panel_item_selected_bg = "#252e3a"
+
+footer_fg = "#ffffff"
+footer_bg = "#171e26"
+footer_border = "#252e3a"
+footer_border_active = "#a0c3bc"
+
+sidebar_fg = "#ffffff"
+sidebar_bg = "#171e26"
+sidebar_title = "#a0c3bc"
+sidebar_border = "#252e3a"
+sidebar_border_active = "#a0c3bc"
+sidebar_item_selected_fg = "#ffffff"
+sidebar_item_selected_bg = "#252e3a"
+sidebar_divider = "#6a7a7e"
+
+modal_fg = "#ffffff"
+modal_bg = "#171e26"
+modal_border_active = "#a0c3bc"
+modal_cancel_fg = "#ffffff"
+modal_cancel_bg = "#57292e"
+modal_confirm_fg = "#171e26"
+modal_confirm_bg = "#a0c3bc"
+
+help_menu_hotkey = "#a0c3bc"
+help_menu_title = "#ffffff"
+
+cursor = "#a0c3bc"
+correct = "#a0c3bc"
+error = "#57292e"
+hint = "#a0c3bc"
+cancel = "#6a7a7e"

@@ -98,6 +98,7 @@ src/config/bottom/themes/<theme>/bottom.toml       # Cores do btm
 src/config/dunst/themes/<theme>/dunstrc.theme      # Cores das notificações
 src/config/wlogout/themes/<theme>/theme.css        # Cores da tela de logout
 src/config/snappy-switcher/themes/<theme>/theme.ini # Cores do alternador de janelas
+src/config/superfile/theme/<theme>.toml            # Cores do file manager padrão
 src/config/yazi/themes/<theme>/theme.toml          # Flavor do file manager
 ```
 

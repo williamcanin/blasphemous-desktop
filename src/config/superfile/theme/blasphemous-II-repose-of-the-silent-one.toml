@@ -1,0 +1,47 @@
+# theme: blasphemous-II-repose-of-the-silent-one
+
+code_syntax_highlight = "catppuccin-macchiato"
+
+full_screen_fg = "#d8e0de"
+full_screen_bg = "#141e1e"
+gradient_color = ["#5a8a8a", "#8a5a5a"]
+
+file_panel_fg = "#d8e0de"
+file_panel_bg = "#141e1e"
+file_panel_border = "#354a4a"
+file_panel_border_active = "#5a8a8a"
+file_panel_top_directory_icon = "#d0d080"
+file_panel_top_path = "#8ad0d0"
+file_panel_item_selected_fg = "#d8e0de"
+file_panel_item_selected_bg = "#354a4a"
+
+footer_fg = "#d8e0de"
+footer_bg = "#141e1e"
+footer_border = "#354a4a"
+footer_border_active = "#5a8a8a"
+
+sidebar_fg = "#d8e0de"
+sidebar_bg = "#141e1e"
+sidebar_title = "#8ad0d0"
+sidebar_border = "#354a4a"
+sidebar_border_active = "#5a8a8a"
+sidebar_item_selected_fg = "#d8e0de"
+sidebar_item_selected_bg = "#354a4a"
+sidebar_divider = "#354a4a"
+
+modal_fg = "#d8e0de"
+modal_bg = "#141e1e"
+modal_border_active = "#5a8a8a"
+modal_cancel_fg = "#141e1e"
+modal_cancel_bg = "#8a5a5a"
+modal_confirm_fg = "#141e1e"
+modal_confirm_bg = "#5a8a8a"
+
+help_menu_hotkey = "#8ad0d0"
+help_menu_title = "#5a8a8a"
+
+cursor = "#d8e0de"
+correct = "#5a9a7a"
+error = "#8a5a5a"
+hint = "#8ad0d0"
+cancel = "#d0d080"
