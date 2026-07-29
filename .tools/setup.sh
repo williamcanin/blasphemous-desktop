@@ -405,8 +405,8 @@ ARCH_PACKAGES="
   libnotify pamixer wireplumber networkmanager swappy foot snappy-switcher
   smog-bin xarchiver zip just libqalculate fontconfig qt5-quickcontrols2
   kvantum nwg-look qt5ct qt6ct qt6-declarative qt6-tools cosmic-files
-  cosmic-settings file-roller pwvucontrol wtype fastfetch polkit-gnome bluez
-  bluez-utils blueman imv zsh-autocomplete zsh-autosuggestions fzf-tab
+  cosmic-settings file-roller pwvucontrol wtype fastfetch bluez polkit-gnome
+  bluez-utils blueman imv hyprpolkitagent zsh-autocomplete zsh-autosuggestions fzf-tab
   zsh-syntax-highlighting
 "
 
@@ -466,7 +466,7 @@ FEDORA_PACKAGES="
   xarchiver zip just libqalculate fontconfig qt5-qtquickcontrols2
   kvantum nwg-look qt5ct qt6ct qt6-qtdeclarative qt6-qttools
   file-roller pwvucontrol wtype fastfetch polkit-gnome bluez
-  bluez-utils blueman imv
+  bluez-utils blueman imv hyprpolkitagent
 "
 HYPERSHUTDOWN_REPO="https://github.com/hyprwm/hyprshutdown.git"
 

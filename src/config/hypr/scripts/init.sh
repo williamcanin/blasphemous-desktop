@@ -63,6 +63,9 @@ case "$1" in
     wl-paste --type image --watch cliphist store &
     systemctl --user restart --now dunst
 
+    # PolicyKit agent (graphical auth) Hyprland
+    systemctl --user start hyprpolkitagent
+
     ## PolicyKit agent (graphical auth) GNOME
     # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     # /usr/lib/hyprpolkitagent &
@@ -97,12 +100,15 @@ case "$1" in
 
     systemctl --user restart --now dunst
 
-    pkill snappy-switcher 2>/dev/null || true
-    sleep 0.2
-    snappy-switcher --daemon &
+    # PolicyKit agent (graphical auth) Hyprland
+    systemctl --user start hyprpolkitagent
 
     # PolicyKit agent (graphical auth) GNOME
     # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+    pkill snappy-switcher 2>/dev/null || true
+    sleep 0.2
+    snappy-switcher --daemon &
 
     # Bluetooth
     #systemctl enable --now bluetooth >/dev/null 2>&1 &
