@@ -7,7 +7,7 @@ SHORTCUT                         DESCRIPTION
 
 01 - Ctrl + Shift + c          = Copy text
 02 - Ctrl + Shift + v          = Paste text
-03 - Ctrl + n                  = New tab
+03 - Ctrl + Alt + n            = New tab
 04 - Ctrl + q                  = Close tab
 
 Split Shortcuts »

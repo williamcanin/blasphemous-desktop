@@ -44,6 +44,12 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 -- hl.env("GTK2_RC_FILES", "/dev/null")
 -- hl.env("GTK_THEME", "Hyprland-Dark-Teal")
 
+-- Variables -----------------------------------------------------------------------------------------------------------
+local mod = "SUPER"
+-- Default File Manager: superfile (spf)
+local file_manager = "kitty -e spf"
+local terminal = "kitty"
+
 -- Global configuration ------------------------------------------------------------------------------------------------
 hl.config({
   general = {
@@ -233,6 +239,13 @@ hl.window_rule({
   center = true,
   opacity = theme.file_manager_opacity,
 })
+hl.window_rule({
+  match = { class = "hyprfm" },
+  float = false,
+  size = "1399 920",
+  center = true,
+  opacity = theme.file_manager_opacity,
+})
 hl.window_rule({ match = { class = "com.system76.CosmicFiles" }, animation = "none" })
 hl.window_rule({
   match = { class = ".*pwvucontrol.*" },
@@ -273,9 +286,6 @@ hl.window_rule({ match = { class = "Alacritty" }, opacity = theme.term_opacity }
 
 -- ================ Keybindings ================
 
--- Variables -----------------------------------------------------------------------------------------------------------
-local mod = "SUPER"
-
 -- Moving between windows (Using: snappy-switcher) ---------------------------------------------------------------------
 hl.bind("ALT + Tab", hl.dsp.exec_cmd("snappy-switcher next --mod alt"))
 hl.bind("ALT + SHIFT + Tab", hl.dsp.exec_cmd("snappy-switcher prev --mod alt"))
@@ -287,10 +297,10 @@ hl.bind(mod .. " + SHIFT + slash", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/ch
 hl.bind(mod .. " + CTRL + slash", hl.dsp.exec_cmd("sh ~/.config/kitty/scripts/cheatsheets.sh"))
 
 -- Open Terminal -------------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
 
 -- File Manager --------------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + Space", hl.dsp.exec_cmd("nautilus"))
+hl.bind(mod .. " + Space", hl.dsp.exec_cmd(file_manager))
 
 -- Sidebar Settings ----------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + comma", hl.dsp.exec_cmd("qs -c sidebar-right ipc call sidebar toggle"))
