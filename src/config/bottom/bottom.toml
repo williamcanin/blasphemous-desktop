@@ -1,21 +1,21 @@
-# Blasphemous II Main Menu theme for Bottom
+# HyprAshen theme for Bottom
 
 [color]
-background = "#111316"
-foreground = "#DFE5EA"
-border = "#996548"
-text = "#DFE5EA"
-selected_text = "#111316"
-selected_bg = "#996548"
+background = "#181818"
+foreground = "#757575"
+border = "#757575"
+text = "#757575"
+selected_text = "#181818"
+selected_bg = "#757575"
 
 [colors]
-cpu_color = "#996548"
-mem_color = "#627D8A"
-swap_color = "#4B596A"
-rx_color = "#B0BFCB"
-tx_color = "#DFE5EA"
-rx_total_color = "#718994"
-tx_total_color = "#B0BFCB"
-process_color = "#DFE5EA"
-process_highlighted_color = "#E9EDF0"
-average_cpu_color = "#B0BFCB"
+cpu_color = "#757575"
+mem_color = "#757575"
+swap_color = "#333333"
+rx_color = "#757575"
+tx_color = "#757575"
+rx_total_color = "#333333"
+tx_total_color = "#757575"
+process_color = "#757575"
+process_highlighted_color = "#757575"
+average_cpu_color = "#757575"

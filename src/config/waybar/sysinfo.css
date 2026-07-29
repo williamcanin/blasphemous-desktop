@@ -1,4 +1,4 @@
-@import url("./themes/blasphemous-II-main-menu/sysinfo-theme.css");
+@import url("./themes/hyprashen/sysinfo-theme.css");
 @import url("./mode.css");
 
 /*  Waybar — Painel vertical (Sysinfo)  */
@@ -17,7 +17,7 @@
 window#waybar {
   min-width: 380px;
   color: @th-foreground;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid @th-border;
   background: @th-window-bg;
 }
