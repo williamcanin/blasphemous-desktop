@@ -161,6 +161,7 @@ fi
 
 if [ -f "$HYPR_THEMES/$THEME/hyprtoolkit.conf" ]; then
   cp "$HYPR_THEMES/$THEME/hyprtoolkit.conf" "$(paths_config hypr/hyprtoolkit.conf)"
+  systemctl --user restart hyprpolkitagent 2>/dev/null || true
 fi
 
 if [ -f "$BTOP_THEMES/$THEME/theme.theme" ]; then
