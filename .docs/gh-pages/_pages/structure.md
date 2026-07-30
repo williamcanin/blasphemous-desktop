@@ -54,7 +54,7 @@ Ao iniciar o Hyprland, `init.sh --started` sobe:
 - `qs -c sidebar-right` (Quickshell sidebar)
 - `dunst`, `snappy-switcher --daemon`
 - `cliphist` watchers (texto e imagem)
-- `hyprpolkitagent`
+- `hyprpolkitagent` com estilo Qt/QML `org.hyprland.style`
 
 ### Login via TTY
 

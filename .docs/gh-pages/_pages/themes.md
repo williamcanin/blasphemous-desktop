@@ -86,6 +86,8 @@ Os arquivos de override são gerados dinamicamente e resetados para dark ao troc
 ```text
 src/config/hypr/themes/<theme>/theme.lua          # Bordas, gaps, sombras
 src/config/hypr/themes/<theme>/hyprlock.conf       # Cores do lockscreen
+src/config/hypr/themes/<theme>/hyprtoolkit.conf    # Paleta do hyprpolkitagent/Hypr* toolkit
+src/config/hypr/themes/<theme>/application-style.conf # Estilo Qt/QML dos apps Hypr*
 src/config/waybar/themes/<theme>/theme.css         # Cores da waybar topo
 src/config/waybar/themes/<theme>/sysinfo-theme.css # Cores do painel sysinfo
 src/config/quickshell/sidebar-right/themes/<theme>/Theme.qml  # Cores da sidebar QML
