@@ -59,6 +59,7 @@ BOTTOM_THEMES="${HOME}/.config/bottom/themes"
 YAZI_THEMES="${HOME}/.config/yazi/themes"
 SNAPPY_THEMES="${HOME}/.config/snappy-switcher/themes"
 SUPERFILE_THEMES="${HOME}/.config/superfile/theme"
+QT6CT_COLORS="${HOME}/.config/qt6ct/colors"
 
 if [ -z "$THEME" ]; then
   printf 'Usage: theme-switch <theme-name>\n' >&2
@@ -83,6 +84,11 @@ for _dir in \
 
 if [ ! -f "$SUPERFILE_THEMES/$THEME.toml" ]; then
   printf 'Error: superfile theme not found: %s\n' "$SUPERFILE_THEMES/$THEME.toml" >&2
+  exit 1
+fi
+
+if [ ! -f "$QT6CT_COLORS/$THEME.conf" ]; then
+  printf 'Error: qt6ct color scheme not found: %s\n' "$QT6CT_COLORS/$THEME.conf" >&2
   exit 1
 fi
 
@@ -161,6 +167,20 @@ fi
 
 if [ -f "$HYPR_THEMES/$THEME/hyprtoolkit.conf" ]; then
   cp "$HYPR_THEMES/$THEME/hyprtoolkit.conf" "$(paths_config hypr/hyprtoolkit.conf)"
+fi
+
+if [ -f "$HYPR_THEMES/$THEME/application-style.conf" ]; then
+  cp "$HYPR_THEMES/$THEME/application-style.conf" "$(paths_config hypr/application-style.conf)"
+fi
+
+_qt6ct_conf="$(paths_config qt6ct/qt6ct.conf)"
+if [ -f "$_qt6ct_conf" ]; then
+  sed -i "s|^color_scheme_path=.*|color_scheme_path=${QT6CT_COLORS}/${THEME}.conf|" "$_qt6ct_conf"
+  sed -i "s|^custom_palette=.*|custom_palette=true|" "$_qt6ct_conf"
+fi
+
+if [ -f "$HYPR_THEMES/$THEME/hyprtoolkit.conf" ] || [ -f "$HYPR_THEMES/$THEME/application-style.conf" ]; then
+  systemctl --user set-environment QT_QPA_PLATFORM=wayland QT_QPA_PLATFORMTHEME=qt6ct QT_QUICK_CONTROLS_STYLE=org.hyprland.style
   systemctl --user restart hyprpolkitagent 2>/dev/null || true
 fi
 

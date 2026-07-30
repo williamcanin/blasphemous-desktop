@@ -64,11 +64,8 @@ case "$1" in
     systemctl --user restart --now dunst
 
     # PolicyKit agent (graphical auth) Hyprland
+    systemctl --user set-environment QT_QPA_PLATFORM=wayland QT_QPA_PLATFORMTHEME=qt6ct QT_QUICK_CONTROLS_STYLE=org.hyprland.style
     systemctl --user start hyprpolkitagent
-
-    ## PolicyKit agent (graphical auth) GNOME
-    # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-    # /usr/lib/hyprpolkitagent &
 
     # Bluetooth
     systemctl enable --now bluetooth >/dev/null 2>&1 &
@@ -101,10 +98,8 @@ case "$1" in
     systemctl --user restart --now dunst
 
     # PolicyKit agent (graphical auth) Hyprland
+    systemctl --user set-environment QT_QPA_PLATFORM=wayland QT_QPA_PLATFORMTHEME=qt6ct QT_QUICK_CONTROLS_STYLE=org.hyprland.style
     systemctl --user start hyprpolkitagent
-
-    # PolicyKit agent (graphical auth) GNOME
-    # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
     pkill snappy-switcher 2>/dev/null || true
     sleep 0.2

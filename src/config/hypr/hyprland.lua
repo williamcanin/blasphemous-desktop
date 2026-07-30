@@ -34,6 +34,8 @@ hl.env("XCURSOR_SIZE", "24")
 -- hl.env("QT_STYLE_OVERRIDE", "kvantum")
 -- Use qt5ct to configure Qt (font, icons, style)
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
+-- Use Hyprland's Qt Quick Controls style for Hypr* Qt/QML apps
+hl.env("QT_QUICK_CONTROLS_STYLE", "org.hyprland.style")
 -- Forces Firefox to run natively on Wayland
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 -- XDGs
