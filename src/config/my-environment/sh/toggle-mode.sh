@@ -15,6 +15,79 @@ fi
 
 # Read current theme
 THEME="$(cat "$HOME/.config/my-environment/.active-theme" 2>/dev/null || echo "hyprashen")"
+HYPRPAPER_FILE="$HOME/.config/hypr/hyprpaper.conf"
+HYPRPAPER_DIR="$HOME/.config/hypr/wallpapers"
+HYPR_THEMES="$HOME/.config/hypr/themes"
+
+ensure_hyprpaper() {
+  if ! pgrep -x hyprpaper >/dev/null 2>&1; then
+    if ! systemctl --user start hyprpaper 2>/dev/null; then
+      hyprpaper >/tmp/hyprpaper.log 2>&1 &
+    fi
+    sleep 0.4
+  fi
+}
+
+apply_wallpaper_runtime() {
+  _wall="$1"
+
+  if command -v swaybg >/dev/null 2>&1; then
+    systemctl --user stop hyprpaper 2>/dev/null || true
+    systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
+    pkill -x swaybg 2>/dev/null || true
+    if ! systemd-run --user --unit=my-environment-wallpaper --collect --quiet \
+      swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1; then
+      nohup swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1 &
+    fi
+    return 0
+  fi
+
+  if command -v hyprctl >/dev/null 2>&1; then
+    _monitor="$(get_hyprpaper_monitor)"
+    ensure_hyprpaper
+    hyprctl hyprpaper wallpaper "${_monitor},$_wall,cover" 2>/dev/null || true
+  fi
+}
+
+get_hyprpaper_monitor() {
+  if command -v hyprctl >/dev/null 2>&1; then
+    hyprctl monitors 2>/dev/null |
+      sed -n 's/^Monitor \([^ ]*\).*/\1/p' |
+      head -n1
+  fi
+}
+
+apply_hyprpaper_wallpaper() {
+  _wall="$1"
+  [ -z "$_wall" ] && return 0
+
+  _config_path=$(printf '%s\n' "$_wall" | sed "s|^$HOME|~|")
+  _monitor="$(get_hyprpaper_monitor)"
+
+  if [ -n "$_monitor" ]; then
+    sed -i "s|^[[:space:]]*monitor[[:space:]]*=.*$|  monitor = ${_monitor}|" \
+      "$HYPRPAPER_FILE" 2>/dev/null || true
+  fi
+
+  sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${_config_path}|" \
+    "$HYPRPAPER_FILE" 2>/dev/null || true
+
+  apply_wallpaper_runtime "$_wall"
+}
+
+find_theme_wallpaper() {
+  _theme="$1"
+
+  for _ext in jpeg jpg png webp; do
+    _wall="${HYPR_THEMES}/${_theme}/wallpaper.${_ext}"
+    [ -f "$_wall" ] && { printf '%s\n' "$_wall"; return 0; }
+
+    _wall="${HYPRPAPER_DIR}/${_theme}.${_ext}"
+    [ -f "$_wall" ] && { printf '%s\n' "$_wall"; return 0; }
+  done
+
+  find "$HYPRPAPER_DIR" -maxdepth 1 -type f -iname "${_theme}.*" | head -n1
+}
 
 # ==============================================================================
 # WAYBAR — mode.css
@@ -77,30 +150,11 @@ if [ "$MODE" = "light" ] && [ "$THEME" = "hyprashen" ]; then
     fi
   fi
   if [ -f "$SOLID" ]; then
-    hyprctl hyprpaper preload "$SOLID" 2>/dev/null || true
-    hyprctl hyprpaper wallpaper ",$SOLID" 2>/dev/null || true
-    # Update hyprpaper.conf so the wallpaper persists after restart
-    sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${SOLID}|" \
-      "$HOME/.config/hypr/hyprpaper.conf" 2>/dev/null || true
+    apply_hyprpaper_wallpaper "$SOLID"
   fi
 else
   # Restore theme wallpaper
-  HYPRPAPER_DIR="$HOME/.config/hypr/wallpapers"
-  HYPR_THEMES="$HOME/.config/hypr/themes"
-  for _ext in jpeg jpg png webp; do
-    _wall="${HYPR_THEMES}/${THEME}/wallpaper.${_ext}"
-    if [ ! -f "$_wall" ]; then
-      _wall="${HYPRPAPER_DIR}/${THEME}.${_ext}"
-    fi
-    if [ -f "$_wall" ]; then
-      hyprctl hyprpaper preload "$_wall" 2>/dev/null || true
-      hyprctl hyprpaper wallpaper ",$_wall" 2>/dev/null || true
-      _config_path=$(echo "$_wall" | sed "s|^$HOME|~|")
-      sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${_config_path}|" \
-        "$HOME/.config/hypr/hyprpaper.conf" 2>/dev/null || true
-      break
-    fi
-  done
+  apply_hyprpaper_wallpaper "$(find_theme_wallpaper "$THEME")"
 fi
 
 # ==============================================================================

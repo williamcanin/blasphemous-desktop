@@ -35,7 +35,7 @@ LOCK_FILE="$CONFIG_DST/my-environment/.install.lock"
 BASE_DEPS="git @development-tools golang gcc lua wayland wayland-protocols-devel"
 
 PACKAGES="
-  firefox hyprland hyprland-qt-support hyprpaper hypridle hyprlock
+  firefox hyprland hyprland-qt-support swaybg hypridle hyprlock
   hyprshot rofi-wayland kitty wev playerctl brightnessctl moreutils quickshell
   flameshot grim cliphist wl-clipboard slurp zsh wf-recorder
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk mpv
