@@ -61,6 +61,75 @@ SNAPPY_THEMES="${HOME}/.config/snappy-switcher/themes"
 SUPERFILE_THEMES="${HOME}/.config/superfile/theme"
 QT6CT_COLORS="${HOME}/.config/qt6ct/colors"
 
+ensure_hyprpaper() {
+  if ! pgrep -x hyprpaper >/dev/null 2>&1; then
+    if ! systemctl --user start hyprpaper 2>/dev/null; then
+      hyprpaper >/tmp/hyprpaper.log 2>&1 &
+    fi
+    sleep 0.4
+  fi
+}
+
+apply_wallpaper_runtime() {
+  _wall="$1"
+
+  if command -v swaybg >/dev/null 2>&1; then
+    systemctl --user stop hyprpaper 2>/dev/null || true
+    systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
+    pkill -x swaybg 2>/dev/null || true
+    if ! systemd-run --user --unit=my-environment-wallpaper --collect --quiet \
+      swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1; then
+      nohup swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1 &
+    fi
+    return 0
+  fi
+
+  if command -v hyprctl >/dev/null 2>&1; then
+    _monitor="$(get_hyprpaper_monitor)"
+    ensure_hyprpaper
+    hyprctl hyprpaper wallpaper "${_monitor},$_wall,cover" 2>/dev/null || true
+  fi
+}
+
+get_hyprpaper_monitor() {
+  if command -v hyprctl >/dev/null 2>&1; then
+    hyprctl monitors 2>/dev/null |
+      sed -n 's/^Monitor \([^ ]*\).*/\1/p' |
+      head -n1
+  fi
+}
+
+find_theme_wallpaper() {
+  _theme="$1"
+
+  for _ext in jpeg jpg png webp; do
+    _wall="${HYPR_THEMES}/${_theme}/wallpaper.${_ext}"
+    [ -f "$_wall" ] && { printf '%s\n' "$_wall"; return 0; }
+
+    _wall="${HYPRPAPER_DIR}/${_theme}.${_ext}"
+    [ -f "$_wall" ] && { printf '%s\n' "$_wall"; return 0; }
+  done
+
+  # Backward compatibility for older assets with display-case names.
+  find "$HYPRPAPER_DIR" -maxdepth 1 -type f -iname "${_theme}.*" | head -n1
+}
+
+apply_hyprpaper_wallpaper() {
+  _wall="$1"
+  [ -z "$_wall" ] && return 0
+
+  _config_path=$(printf '%s\n' "$_wall" | sed "s|^$HOME|~|")
+  _monitor="$(get_hyprpaper_monitor)"
+
+  if [ -n "$_monitor" ]; then
+    sed -i "s|^[[:space:]]*monitor[[:space:]]*=.*$|  monitor = ${_monitor}|" "$HYPRPAPER_FILE"
+  fi
+
+  sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${_config_path}|" "$HYPRPAPER_FILE"
+
+  apply_wallpaper_runtime "$_wall"
+}
+
 if [ -z "$THEME" ]; then
   printf 'Usage: theme-switch <theme-name>\n' >&2
   exit 1
@@ -83,13 +152,11 @@ for _dir in \
  done
 
 if [ ! -f "$SUPERFILE_THEMES/$THEME.toml" ]; then
-  printf 'Error: superfile theme not found: %s\n' "$SUPERFILE_THEMES/$THEME.toml" >&2
-  exit 1
+  printf 'Warning: superfile theme not found: %s\n' "$SUPERFILE_THEMES/$THEME.toml" >&2
 fi
 
 if [ ! -f "$QT6CT_COLORS/$THEME.conf" ]; then
-  printf 'Error: qt6ct color scheme not found: %s\n' "$QT6CT_COLORS/$THEME.conf" >&2
-  exit 1
+  printf 'Warning: qt6ct color scheme not found: %s\n' "$QT6CT_COLORS/$THEME.conf" >&2
 fi
 
 printf '%s' "$THEME" > "$ACTIVE_FILE"
@@ -174,7 +241,7 @@ if [ -f "$HYPR_THEMES/$THEME/application-style.conf" ]; then
 fi
 
 _qt6ct_conf="$(paths_config qt6ct/qt6ct.conf)"
-if [ -f "$_qt6ct_conf" ]; then
+if [ -f "$_qt6ct_conf" ] && [ -f "$QT6CT_COLORS/$THEME.conf" ]; then
   sed -i "s|^color_scheme_path=.*|color_scheme_path=${QT6CT_COLORS}/${THEME}.conf|" "$_qt6ct_conf"
   sed -i "s|^custom_palette=.*|custom_palette=true|" "$_qt6ct_conf"
 fi
@@ -203,7 +270,7 @@ if [ -f "$YAZI_THEMES/$THEME/theme.toml" ]; then
 fi
 
 _superfile_conf="$(paths_config superfile/config.toml)"
-if [ -f "$_superfile_conf" ]; then
+if [ -f "$_superfile_conf" ] && [ -f "$SUPERFILE_THEMES/$THEME.toml" ]; then
   sed -i "s|^theme = .*|theme = \"${THEME}\"|" "$_superfile_conf"
 fi
 
@@ -227,20 +294,6 @@ sh "$(paths_config hypr/scripts/init.sh)" --waybars
 HYPRPAPER_FILE="$(paths_config hypr/hyprpaper.conf)"
 HYPRPAPER_DIR="$(paths_config hypr/wallpapers)"
 
-for _ext in jpeg jpg png webp; do
-  _wall="${HYPR_THEMES}/${THEME}/wallpaper.${_ext}"
-  if [ ! -f "$_wall" ]; then
-    _wall="${HYPRPAPER_DIR}/${THEME}.${_ext}"
-  fi
-  if [ -f "$_wall" ]; then
-    _config_path=$(echo "$_wall" | sed "s|^$HOME|~|")
-    hyprctl hyprpaper preload "$_wall" 2>/dev/null || true
-    hyprctl hyprpaper wallpaper ",$_wall" 2>/dev/null || true
-    sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${_config_path}|" "$HYPRPAPER_FILE"
-    break
-  fi
-done
-
 # Generate solid-color wallpaper for themes without an image
 if [ "$THEME" = "hyprslate" ]; then
   _solid="${HYPRPAPER_DIR}/${THEME}.png"
@@ -251,13 +304,9 @@ if [ "$THEME" = "hyprslate" ]; then
       convert -size 1920x1080 xc:'#2F3541' "$_solid" 2>/dev/null || true
     fi
   fi
-  if [ -f "$_solid" ]; then
-    _config_path=$(echo "$_solid" | sed "s|^$HOME|~|")
-    hyprctl hyprpaper preload "$_solid" 2>/dev/null || true
-    hyprctl hyprpaper wallpaper ",$_solid" 2>/dev/null || true
-    sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${_config_path}|" "$HYPRPAPER_FILE"
-  fi
 fi
+
+apply_hyprpaper_wallpaper "$(find_theme_wallpaper "$THEME")"
 
 # Restart dunst with new theme colors
 systemctl --user restart --now dunst

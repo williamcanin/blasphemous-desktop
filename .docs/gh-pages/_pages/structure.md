@@ -49,7 +49,7 @@ Variáveis em `environment.d/wayland.conf` priorizam execução nativa Wayland p
 
 Ao iniciar o Hyprland, `init.sh --started` sobe:
 
-- `hyprpaper`, `hypridle`
+- `swaybg`, `hypridle`
 - Waybar superior + Waybar sysinfo
 - `qs -c sidebar-right` (Quickshell sidebar)
 - `dunst`, `snappy-switcher --daemon`
