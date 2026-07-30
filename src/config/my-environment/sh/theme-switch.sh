@@ -159,6 +159,10 @@ if [ -f "$HYPR_THEMES/$THEME/hyprlock.conf" ]; then
   cp "$HYPR_THEMES/$THEME/hyprlock.conf" "$(paths_config hypr/hyprlock.conf)"
 fi
 
+if [ -f "$HYPR_THEMES/$THEME/hyprtoolkit.conf" ]; then
+  cp "$HYPR_THEMES/$THEME/hyprtoolkit.conf" "$(paths_config hypr/hyprtoolkit.conf)"
+fi
+
 if [ -f "$BTOP_THEMES/$THEME/theme.theme" ]; then
   _btop_conf="$(paths_config btop/btop.conf)"
   sed -i "s|color_theme = .*|color_theme = \"${BTOP_THEMES}/${THEME}/theme.theme\"|" "$_btop_conf"
