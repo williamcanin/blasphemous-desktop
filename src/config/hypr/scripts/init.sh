@@ -9,19 +9,15 @@ xdg-user-dirs-update
 start_wallpaper() {
   [ -n "$WALLPAPER_PATH" ] || return 0
 
-  systemctl --user stop hyprpaper 2>/dev/null || true
+  systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
+  pkill -x swaybg 2>/dev/null || true
 
-  if command -v swaybg >/dev/null 2>&1; then
-    systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
-    pkill -x swaybg 2>/dev/null || true
-    if ! systemd-run --user --unit=my-environment-wallpaper --collect --quiet \
-      swaybg -m fill -i "$WALLPAPER_PATH" >/tmp/swaybg.log 2>&1; then
-      nohup swaybg -m fill -i "$WALLPAPER_PATH" >/tmp/swaybg.log 2>&1 &
-    fi
-  elif ! pgrep -x hyprpaper >/dev/null 2>&1; then
+  if command -v hyprpaper >/dev/null 2>&1 && ! pgrep -x hyprpaper >/dev/null 2>&1; then
     if ! systemctl --user start hyprpaper 2>/dev/null; then
       hyprpaper >/tmp/hyprpaper.log 2>&1 &
     fi
+  elif command -v swaybg >/dev/null 2>&1; then
+    nohup swaybg -m fill -i "$WALLPAPER_PATH" >/tmp/swaybg.log 2>&1 &
   fi
 }
 

@@ -33,7 +33,7 @@ FONTS_DST="$HOME/.local/share/fonts"
 LOCK_FILE="$CONFIG_DST/my-environment/.install.lock"
 BASE_DEPS="git base-devel go gcc lua wayland wayland-protocols"
 PACKAGES="
-  firefox hyprland hyprland-qt-support swaybg hypridle hyprshutdown hyprlock
+  firefox hyprland hyprland-qt-support hyprpaper hypridle hyprshutdown hyprlock
   hyprshot rofi-wayland kitty wev playerctl brightnessctl moreutils quickshell-git
   flameshot grim cliphist wl-clipboard slurp zsh gpu-screen-recorder wf-recorder
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk mpv

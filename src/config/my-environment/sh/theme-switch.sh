@@ -61,37 +61,26 @@ SNAPPY_THEMES="${HOME}/.config/snappy-switcher/themes"
 SUPERFILE_THEMES="${HOME}/.config/superfile/theme"
 QT6CT_COLORS="${HOME}/.config/qt6ct/colors"
 
-ensure_hyprpaper() {
-  if ! pgrep -x hyprpaper >/dev/null 2>&1; then
-    if ! systemctl --user start hyprpaper 2>/dev/null; then
-      hyprpaper >/tmp/hyprpaper.log 2>&1 &
-    fi
-    sleep 0.4
-  fi
-}
-
 apply_wallpaper_runtime() {
   _wall="$1"
 
-  if command -v swaybg >/dev/null 2>&1; then
-    systemctl --user stop hyprpaper 2>/dev/null || true
+  if command -v hyprpaper >/dev/null 2>&1; then
     systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
     pkill -x swaybg 2>/dev/null || true
-    if ! systemd-run --user --unit=my-environment-wallpaper --collect --quiet \
-      swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1; then
-      nohup swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1 &
-    fi
+    systemctl --user restart hyprpaper 2>/dev/null || {
+      pkill -x hyprpaper 2>/dev/null || true
+      hyprpaper >/tmp/hyprpaper.log 2>&1 &
+    }
     return 0
   fi
 
-  if command -v hyprctl >/dev/null 2>&1; then
-    _monitor="$(get_hyprpaper_monitor)"
-    ensure_hyprpaper
-    hyprctl hyprpaper wallpaper "${_monitor},$_wall,cover" 2>/dev/null || true
+  if command -v swaybg >/dev/null 2>&1; then
+    pkill -x swaybg 2>/dev/null || true
+    nohup swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1 &
   fi
 }
 
-get_hyprpaper_monitor() {
+get_active_monitor() {
   if command -v hyprctl >/dev/null 2>&1; then
     hyprctl monitors 2>/dev/null |
       sed -n 's/^Monitor \([^ ]*\).*/\1/p' |
@@ -114,12 +103,12 @@ find_theme_wallpaper() {
   find "$HYPRPAPER_DIR" -maxdepth 1 -type f -iname "${_theme}.*" | head -n1
 }
 
-apply_hyprpaper_wallpaper() {
+apply_wallpaper() {
   _wall="$1"
   [ -z "$_wall" ] && return 0
 
   _config_path=$(printf '%s\n' "$_wall" | sed "s|^$HOME|~|")
-  _monitor="$(get_hyprpaper_monitor)"
+  _monitor="$(get_active_monitor)"
 
   if [ -n "$_monitor" ]; then
     sed -i "s|^[[:space:]]*monitor[[:space:]]*=.*$|  monitor = ${_monitor}|" "$HYPRPAPER_FILE"
@@ -306,7 +295,7 @@ if [ "$THEME" = "hyprslate" ]; then
   fi
 fi
 
-apply_hyprpaper_wallpaper "$(find_theme_wallpaper "$THEME")"
+apply_wallpaper "$(find_theme_wallpaper "$THEME")"
 
 # Restart dunst with new theme colors
 systemctl --user restart --now dunst
