@@ -5,35 +5,26 @@
 WALLPAPERS_DIR="${HOME}/.config/hypr/wallpapers"
 SELECTED_FILE=$(mktemp)
 
-ensure_hyprpaper() {
-  if ! pgrep -x hyprpaper >/dev/null 2>&1; then
-    if ! systemctl --user start hyprpaper 2>/dev/null; then
-      hyprpaper >/tmp/hyprpaper.log 2>&1 &
-    fi
-    sleep 0.4
-  fi
-}
-
 apply_wallpaper_runtime() {
   _wall="$1"
-  _monitor="$2"
 
-  if command -v swaybg >/dev/null 2>&1; then
-    systemctl --user stop hyprpaper 2>/dev/null || true
+  if command -v hyprpaper >/dev/null 2>&1; then
     systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
     pkill -x swaybg 2>/dev/null || true
-    if ! systemd-run --user --unit=my-environment-wallpaper --collect --quiet \
-      swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1; then
-      nohup swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1 &
-    fi
+    systemctl --user restart hyprpaper 2>/dev/null || {
+      pkill -x hyprpaper 2>/dev/null || true
+      hyprpaper >/tmp/hyprpaper.log 2>&1 &
+    }
     return 0
   fi
 
-  ensure_hyprpaper
-  hyprctl hyprpaper wallpaper "${_monitor},$_wall,cover"
+  if command -v swaybg >/dev/null 2>&1; then
+    pkill -x swaybg 2>/dev/null || true
+    nohup swaybg -m fill -i "$_wall" >/tmp/swaybg.log 2>&1 &
+  fi
 }
 
-get_hyprpaper_monitor() {
+get_active_monitor() {
   if command -v hyprctl >/dev/null 2>&1; then
     hyprctl monitors 2>/dev/null |
       sed -n 's/^Monitor \([^ ]*\).*/\1/p' |
@@ -50,14 +41,14 @@ rm -f "$SELECTED_FILE"
 
 # Convert $HOME to ~ for config file consistency
 CONFIG_PATH=$(echo "$SELECTED_PATH" | sed "s|^$HOME|~|")
-MONITOR="$(get_hyprpaper_monitor)"
+MONITOR="$(get_active_monitor)"
 
 # Update hyprpaper.conf with ~ path
 [ -n "$MONITOR" ] && sed -i "s|^[[:space:]]*monitor[[:space:]]*=.*$|  monitor = ${MONITOR}|" "$HYPRPAPER_FILE"
 sed -i "s|^[[:space:]]*path[[:space:]]*=.*$|  path =  ${CONFIG_PATH}|" "$HYPRPAPER_FILE"
 
 # Apply with full path
-apply_wallpaper_runtime "$SELECTED_PATH" "$MONITOR"
+apply_wallpaper_runtime "$SELECTED_PATH"
 
 # Remove old lock screen image
 rm -f "$HYPRLOCK_PATH"

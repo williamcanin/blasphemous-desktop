@@ -68,7 +68,7 @@ Quando ativado, o script:
 2. Gera `mode.css` em `~/.config/waybar/` com as cores do modo claro, sobrescrevendo as variáveis do tema (importado por último em `style.css` e `sysinfo.css`).
 3. Gera `mode.rasi` em `~/.config/rofi/` com as cores claras para o launcher.
 4. Reinicia a waybar para aplicar o novo CSS.
-5. Gera o wallpaper sólido `hyprashen-light.png` (`#386775`, 1920×1080) via ImageMagick e aplica com swaybg.
+5. Gera o wallpaper sólido `hyprashen-light.png` (`#386775`, 1920×1080) via ImageMagick e aplica com hyprpaper.
 6. Escreve o arquivo `~/.config/my-environment/.gtk-mode` com `"light"` ou `"dark"` para o Quickshell.
 7. O `Theme.qml` da sidebar lê `.gtk-mode` e ativa o objeto `light` com as cores invertidas.
 

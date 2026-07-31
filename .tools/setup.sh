@@ -394,7 +394,7 @@ copy_fonts() {
 # ============================================================================
 ARCH_BASE_DEPS="git base-devel go gcc lua wayland wayland-protocols"
 ARCH_PACKAGES="
-  firefox hyprland hyprland-qt-support swaybg hypridle hyprshutdown hyprlock
+  firefox hyprland hyprland-qt-support hyprpaper hypridle hyprshutdown hyprlock
   hyprshot rofi-wayland kitty wev playerctl brightnessctl moreutils quickshell
   flameshot grim cliphist wl-clipboard slurp zsh gpu-screen-recorder wf-recorder
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk mpv
@@ -455,7 +455,7 @@ install_arch() {
 # ============================================================================
 FEDORA_BASE_DEPS="git @development-tools golang gcc lua wayland wayland-protocols-devel"
 FEDORA_PACKAGES="
-  firefox hyprland hyprland-qt-support swaybg hypridle hyprlock
+  firefox hyprland hyprland-qt-support hyprpaper hypridle hyprlock
   hyprshot rofi-wayland kitty wev playerctl brightnessctl moreutils quickshell
   flameshot grim cliphist wl-clipboard slurp zsh wf-recorder
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk mpv
@@ -1011,8 +1011,8 @@ uninstall() {
   echo ""
   if $PURGE_PACKAGES; then
     warn "Package removal not implemented — uninstall packages manually."
-    echo "  Arch:   yay -Rns firefox hyprland swaybg ..."
-    echo "  Fedora: sudo dnf remove firefox hyprland swaybg ..."
+    echo "  Arch:   yay -Rns firefox hyprland hyprpaper ..."
+    echo "  Fedora: sudo dnf remove firefox hyprland hyprpaper ..."
   else
     warn "Packages were NOT removed. To see installed packages, check the installer script."
   fi

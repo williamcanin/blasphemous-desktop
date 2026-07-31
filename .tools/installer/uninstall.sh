@@ -371,8 +371,8 @@ uninstall() {
 
   if $PURGE_PACKAGES; then
     warn "Package removal not implemented — uninstall packages manually to avoid breaking your system."
-    echo "  Arch:   yay -Rns firefox hyprland swaybg ..."
-    echo "  Fedora: sudo dnf remove firefox hyprland swaybg ..."
+    echo "  Arch:   yay -Rns firefox hyprland hyprpaper ..."
+    echo "  Fedora: sudo dnf remove firefox hyprland hyprpaper ..."
   else
     warn "Packages were NOT removed. To see installed packages, check the installer script."
   fi
