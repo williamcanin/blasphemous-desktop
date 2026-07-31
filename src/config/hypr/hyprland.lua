@@ -330,6 +330,7 @@ hl.bind(mod .. " + Q", hl.dsp.window.close())
 -- Enable/Disable Floating Window --------------------------------------------------------------------------------------
 hl.bind(mod .. " + SHIFT + space", function()
   hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+  hl.exec_scheduled_prop_refresh_immediately()
 
   local win = hl.get_active_window()
 
@@ -338,6 +339,8 @@ hl.bind(mod .. " + SHIFT + space", function()
       x = 1399,
       y = 920,
     }))
+
+    hl.dispatch(hl.dsp.window.center())
   end
 end)
 
@@ -439,47 +442,49 @@ end)
 
 -- Cycle workspaces in loop (like GNOME) -------------------------------------------------------------------------------
 local function get_sorted_workspaces()
-  local wins = hl.get_windows()
-  local seen = {}
+  local workspaces = hl.get_workspaces()
   local ws_ids = {}
-  for _, w in ipairs(wins) do
-    if not seen[w.workspace.id] then
-      seen[w.workspace.id] = true
-      table.insert(ws_ids, w.workspace.id)
+
+  for _, ws in ipairs(workspaces) do
+    if ws.id > 0 then
+      table.insert(ws_ids, ws.id)
     end
   end
+
   table.sort(ws_ids)
   return ws_ids
 end
 
-local function workspace_next()
-  local active = hl.get_active_window()
+local function cycle_workspace(offset)
+  local active = hl.get_active_workspace()
   if not active then
     return
   end
+
   local ws_ids = get_sorted_workspaces()
+  if #ws_ids == 0 then
+    return
+  end
+
   for i, id in ipairs(ws_ids) do
-    if id == active.workspace.id then
-      local next = ws_ids[i + 1] or ws_ids[1]
-      hl.dispatch(hl.dsp.focus({ workspace = next }))
-      break
+    if id == active.id then
+      local target_index = ((i - 1 + offset) % #ws_ids) + 1
+
+      hl.dispatch(hl.dsp.focus({
+        workspace = ws_ids[target_index],
+      }))
+
+      return
     end
   end
 end
 
+local function workspace_next()
+  cycle_workspace(1)
+end
+
 local function workspace_prev()
-  local active = hl.get_active_window()
-  if not active then
-    return
-  end
-  local ws_ids = get_sorted_workspaces()
-  for i, id in ipairs(ws_ids) do
-    if id == active.workspace.id then
-      local prev = ws_ids[i - 1] or ws_ids[#ws_ids]
-      hl.dispatch(hl.dsp.focus({ workspace = prev }))
-      break
-    end
-  end
+  cycle_workspace(-1)
 end
 
 hl.bind("CTRL + ALT + right", workspace_next)
@@ -524,7 +529,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
 
 -- Turn the monitor off/on ---------------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + M", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.dpms(\"toggle\")'"))
+hl.bind(mod .. " + SHIFT + M", hl.dsp.dpms({ action = "toggle" }))
 
 -- Default browser -----------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + B", hl.dsp.exec_cmd("xdg-open https://"))
