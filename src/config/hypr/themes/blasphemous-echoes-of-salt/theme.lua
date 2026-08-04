@@ -18,5 +18,5 @@ return {
   gaps_out = 18,
   border_size = 2,
   file_manager_opacity = "0.94 0.94",
-  term_opacity = "0.45 0.70",
+  term_opacity = "0.85 0.95",
 }
