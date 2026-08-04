@@ -17,7 +17,7 @@ export LIBVA_DRIVER_NAME=nvidia
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 ## Choice Desktop Environment
-## Options: sway | hyprland | cosmic
+## Options: sway | hyprland
 DE="hyprland"
 
 if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
@@ -63,11 +63,6 @@ if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
       xargs -r rm -f
 
       start-hyprland > "$LOG" 2>&1
-    elif [ $DE = "cosmic" ]; then
-      export XDG_CURRENT_DESKTOP=Cosmic
-      export XDG_SESSION_DESKTOP=Cosmic
-
-      start-cosmic
   fi
 
     # Exit TTY

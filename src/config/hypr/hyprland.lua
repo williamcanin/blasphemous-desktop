@@ -248,7 +248,6 @@ hl.window_rule({
   center = true,
   opacity = theme.file_manager_opacity,
 })
-hl.window_rule({ match = { class = "com.system76.CosmicFiles" }, animation = "none" })
 hl.window_rule({
   match = { class = ".*pwvucontrol.*" },
   float = true,

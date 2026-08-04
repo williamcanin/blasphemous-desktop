@@ -13,7 +13,6 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 . "$SCRIPT_DIR/libs/help.sh"
 . "$SCRIPT_DIR/libs/symlink.sh"
 . "$SCRIPT_DIR/libs/term.sh"
-. "$SCRIPT_DIR/libs/cosmic.sh"
 . "$SCRIPT_DIR/libs/copyright.sh"
 
 CONFIG_SRC="$REPO_ROOT/src/config"
@@ -177,23 +176,6 @@ remove_term_options() {
   done
 }
 
-remove_cosmic_settings() {
-  cosmic_dir="$HOME/.config/cosmic"
-
-  if [ -d "$cosmic_dir" ]; then
-    if confirm "Remove Cosmic settings directory ($cosmic_dir)?"; then
-      if $DRY_RUN; then
-        warn "[DRY-RUN] rm -rf $cosmic_dir"
-      else
-        rm -rf "$cosmic_dir"
-        ok "Removed Cosmic settings."
-      fi
-    fi
-  else
-    warn "Cosmic settings not found."
-  fi
-}
-
 remove_lock() {
   if [ -f "$LOCK_FILE" ]; then
     if $DRY_RUN; then
@@ -314,10 +296,6 @@ list_installed_configs() {
     accent "Waybar sidebar state exists"
     echo ""
   fi
-  if [ -d "$HOME/.config/cosmic" ]; then
-    accent "Cosmic settings exist"
-    echo ""
-  fi
 }
 
 uninstall() {
@@ -351,8 +329,6 @@ uninstall() {
   revert_default_apps
   echo ""
   revert_gsettings
-  echo ""
-  remove_cosmic_settings
   echo ""
   remove_waybar_cache
   echo ""

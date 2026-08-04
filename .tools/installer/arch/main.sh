@@ -13,7 +13,6 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 . "$SCRIPT_DIR/../libs/help.sh"
 . "$SCRIPT_DIR/../libs/symlink.sh"
 . "$SCRIPT_DIR/../libs/term.sh"
-. "$SCRIPT_DIR/../libs/cosmic.sh"
 . "$SCRIPT_DIR/../libs/copyright.sh"
 
 # When run via sudo, adjust HOME to the original user
@@ -254,7 +253,6 @@ install() {
   cleaner
   install_packages
   default_apps
-  settings_cosmic
   set_gsettings
   copy_configs
   create_lock

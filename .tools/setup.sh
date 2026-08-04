@@ -215,21 +215,6 @@ install_term_options() {
 }
 
 # ============================================================================
-# COSMIC SETTINGS
-# ============================================================================
-settings_cosmic() {
-  log "Cosmic Files settings..." "\n"
-  mkdir -p "$HOME/.config/cosmic/com.system76.CosmicTk/v1/"
-  echo "false" > "$HOME/.config/cosmic/com.system76.CosmicTk/v1/show_maximize"
-  echo "false" > "$HOME/.config/cosmic/com.system76.CosmicTk/v1/show_minimize"
-  echo "\"$ICON_THEME\"" > "$HOME/.config/cosmic/com.system76.CosmicTk/v1/icon_theme"
-  if command -v cosmic-settings >/dev/null 2>&1 && [ -f "$REPO_ROOT/src/imports/cosmic/dark-theme.ron" ]; then
-    cosmic-settings appearance import "$REPO_ROOT/src/imports/cosmic/dark-theme.ron"
-  fi
-  ok "Settings Cosmic done!"
-}
-
-# ============================================================================
 # SHARED VARIABLES
 # ============================================================================
 
@@ -410,8 +395,8 @@ ARCH_PACKAGES="
   ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd otf-font-awesome vivid
   libnotify pamixer wireplumber networkmanager swappy foot snappy-switcher
   smog-bin xarchiver zip just libqalculate fontconfig qt5-quickcontrols2
-  kvantum nwg-look qt5ct qt6ct qt6-declarative qt6-tools cosmic-files
-  cosmic-settings file-roller pwvucontrol wtype fastfetch bluez polkit-gnome
+  kvantum nwg-look qt5ct qt6ct qt6-declarative qt6-tools
+  file-roller pwvucontrol wtype fastfetch bluez polkit-gnome
   bluez-utils blueman imv hyprpolkitagent superfile zsh-autocomplete zsh-autosuggestions fzf-tab
   zsh-syntax-highlighting
 "
@@ -446,7 +431,6 @@ install_arch() {
   cleaner
   install_arch_packages
   default_apps
-  settings_cosmic
   set_gsettings
   copy_configs
   create_lock
@@ -530,7 +514,6 @@ install_fedora() {
   install_fedora_packages
   install_hyprshutdown
   default_apps
-  settings_cosmic
   set_gsettings
   copy_configs
   create_lock
@@ -862,18 +845,6 @@ remove_term_options() {
   done
 }
 
-remove_cosmic_settings() {
-  cosmic_dir="$HOME/.config/cosmic"
-  if [ -d "$cosmic_dir" ]; then
-    if confirm "Remove Cosmic settings directory ($cosmic_dir)?"; then
-      dry rm -rf "$cosmic_dir"
-      ok "Removed Cosmic settings."
-    fi
-  else
-    warn "Cosmic settings not found."
-  fi
-}
-
 remove_lock() {
   if [ -f "$LOCK_FILE" ]; then
     dry rm -f "$LOCK_FILE"
@@ -968,10 +939,6 @@ list_installed_configs() {
     accent "Waybar sidebar state exists"
     echo ""
   fi
-  if [ -d "$HOME/.config/cosmic" ]; then
-    accent "Cosmic settings exist"
-    echo ""
-  fi
 }
 
 uninstall() {
@@ -1000,8 +967,6 @@ uninstall() {
   revert_default_apps
   echo ""
   revert_gsettings
-  echo ""
-  remove_cosmic_settings
   echo ""
   remove_waybar_cache
   echo ""
