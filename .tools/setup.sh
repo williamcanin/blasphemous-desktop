@@ -30,7 +30,7 @@
 set -e
 
 # --- VERSION ------------------------------------------------------------------
-VERSION="0.3.0"
+VERSION="0.3.1"
 
 # --- Variables ----------------------------------------------------------------
 USED_SHELL="/usr/bin/zsh"
@@ -318,14 +318,19 @@ copy_configs() {
     name="${src_dir%/}"
     name="${name##*/}"
     dst_dir="$CONFIG_DST/$name"
-    if [ -d "$dst_dir" ]; then
-      if [ "$skip_backup" = true ]; then
-        rm -rf "$dst_dir"
-        warn "$name — overwritten (lock present)"
+    if [ -e "$dst_dir" ] || [ -L "$dst_dir" ]; then
+      if [ -d "$dst_dir" ] && [ ! -L "$dst_dir" ]; then
+        if [ "$skip_backup" = true ]; then
+          rm -rf "$dst_dir"
+          warn "$name — overwritten (lock present)"
+        else
+          backup="${dst_dir}.bak.$(date +%Y%m%d%H%M%S)"
+          mv "$dst_dir" "$backup"
+          warn "$name — backup saved in $backup"
+        fi
       else
-        backup="${dst_dir}.bak.$(date +%Y%m%d%H%M%S)"
-        mv "$dst_dir" "$backup"
-        warn "$name — backup saved in $backup"
+        rm -rf "$dst_dir"
+        warn "$name — removed conflicting non-directory (file or symlink)"
       fi
     fi
     cp -rf "$src_dir" "$CONFIG_DST/"
@@ -334,6 +339,7 @@ copy_configs() {
 
   ENV_BOOTSTRAP_SRC="$CONFIG_SRC/blasphemous-desktop/.blasphemous-desktop-bootstrap"
   if [ -f "$ENV_BOOTSTRAP_SRC" ]; then
+    rm -f "$CONFIG_DST/.blasphemous-desktop-bootstrap"
     cp -f "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.blasphemous-desktop-bootstrap"
     ok ".blasphemous-desktop-bootstrap"
   fi
@@ -795,7 +801,7 @@ remove_configs() {
     name="${src_dir%/}"
     name="${name##*/}"
     dst_dir="$CONFIG_DST/$name"
-    if [ -d "$dst_dir" ]; then
+    if [ -e "$dst_dir" ] || [ -L "$dst_dir" ]; then
       dry rm -rf "$dst_dir"
       ok "Removed: $dst_dir"
     else
@@ -803,7 +809,7 @@ remove_configs() {
     fi
   done
   bootstrap_dst="$CONFIG_DST/.blasphemous-desktop-bootstrap"
-  if [ -f "$bootstrap_dst" ]; then
+  if [ -e "$bootstrap_dst" ] || [ -L "$bootstrap_dst" ]; then
     dry rm -f "$bootstrap_dst"
     ok "Removed: $bootstrap_dst"
   fi
@@ -928,7 +934,7 @@ list_installed_configs() {
       fi
     done
   fi
-  if [ -f "$CONFIG_DST/.blasphemous-desktop-bootstrap" ]; then
+  if [ -f "$CONFIG_DST/.blasphemous-desktop-bootstrap" ] || [ -L "$CONFIG_DST/.blasphemous-desktop-bootstrap" ]; then
     printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.blasphemous-desktop-bootstrap"
   fi
   echo ""

@@ -81,7 +81,7 @@ remove_configs() {
     name="${name##*/}"
     dst_dir="$CONFIG_DST/$name"
 
-    if [ -d "$dst_dir" ]; then
+    if [ -e "$dst_dir" ] || [ -L "$dst_dir" ]; then
       if $DRY_RUN; then
         warn "[DRY-RUN] rm -rf $dst_dir"
       else
@@ -94,7 +94,7 @@ remove_configs() {
   done
 
   bootstrap_dst="$CONFIG_DST/.blasphemous-desktop-bootstrap"
-  if [ -f "$bootstrap_dst" ]; then
+  if [ -e "$bootstrap_dst" ] || [ -L "$bootstrap_dst" ]; then
     if $DRY_RUN; then
       warn "[DRY-RUN] rm $bootstrap_dst"
     else

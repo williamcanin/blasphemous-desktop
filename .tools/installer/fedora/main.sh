@@ -157,14 +157,19 @@ copy_configs() {
     name="${name##*/}"
     dst_dir="$CONFIG_DST/$name"
 
-    if [ -d "$dst_dir" ]; then
-      if [ "$skip_backup" = true ]; then
-        rm -rf "$dst_dir"
-        warn "$name — overwritten (lock present)"
+    if [ -e "$dst_dir" ] || [ -L "$dst_dir" ]; then
+      if [ -d "$dst_dir" ] && [ ! -L "$dst_dir" ]; then
+        if [ "$skip_backup" = true ]; then
+          rm -rf "$dst_dir"
+          warn "$name — overwritten (lock present)"
+        else
+          backup="${dst_dir}.bak.$(date +%Y%m%d%H%M%S)"
+          mv "$dst_dir" "$backup"
+          warn "$name — backup saved in $backup"
+        fi
       else
-        backup="${dst_dir}.bak.$(date +%Y%m%d%H%M%S)"
-        mv "$dst_dir" "$backup"
-        warn "$name — backup saved in $backup"
+        rm -rf "$dst_dir"
+        warn "$name — removed conflicting non-directory (file or symlink)"
       fi
     fi
 
@@ -174,6 +179,7 @@ copy_configs() {
 
   ENV_BOOTSTRAP_SRC="$CONFIG_SRC/blasphemous-desktop/.blasphemous-desktop-bootstrap"
   if [ -f "$ENV_BOOTSTRAP_SRC" ]; then
+    rm -f "$CONFIG_DST/.blasphemous-desktop-bootstrap"
     cp -v "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.blasphemous-desktop-bootstrap"
     ok ".blasphemous-desktop-bootstrap"
   fi
