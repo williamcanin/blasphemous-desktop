@@ -15,12 +15,12 @@ ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org) e [Fe
 
 O repositório reúne os arquivos de configuração, scripts de automação, temas, fontes e atalhos usados no meu setup diário.
 
-O visual combina **Hyprland** com bordas discretas, blur, sombras, wallpaper, tema adaptável para **GTK/Rofi/terminais** (HyprAshen suporta alternância light/dark), **Waybar** no topo, painel lateral de informações do sistema e uma sidebar na direita com **Quickshell/QML**.
+O visual combina **Hyprland** com bordas discretas, blur, sombras, wallpaper, tema para **GTK/Rofi/terminais**, **Waybar** no topo, painel lateral de informações do sistema e uma sidebar na direita com **Quickshell/QML**.
 
 ## Documentação
 
 - [Features e Componentes]({{ '/features/' | relative_url }}) — o que o ambiente oferece e quais ferramentas compõem o setup.
-- [Temas]({{ '/themes/' | relative_url }}) — os 13 temas (HyprSlate, HyprAshen + 11 inspirados em [Blasphemous I](https://thegamekitchen.com/blasphemous) e [Blasphemous II](https://www.blasphemous2game.com/)), como trocar e a estrutura de arquivos.
+- [Temas]({{ '/themes/' | relative_url }}) — os 11 temas inspirados em [Blasphemous I](https://thegamekitchen.com/blasphemous) e [Blasphemous II](https://www.blasphemous2game.com/), como trocar e a estrutura de arquivos.
 - [Galeria de Temas]({{ '/gallery/' | relative_url }}) — prévia visual de cada tema.
 - [Uso no dia a dia]({{ '/usage/' | relative_url }}) — sidebar, scripts e atalhos de teclado.
 - [Instalação]({{ '/install/' | relative_url }}) — requisitos e como instalar (online ou offline).

@@ -85,7 +85,7 @@ A sidebar carrega o tema dinamicamente — ao trocar o tema, as cores são atual
 | `Super + D` | Abrir launcher Rofi |
 | `Super + B` | Abrir navegador padrão |
 | `Super + Q` | Fechar janela |
-| `Super + F5` | Alternar modo claro/escuro (HyprAshen) |
+| `Super + F5` | Alternar tema GTK claro/escuro |
 | `Super + F` | Alternar fullscreen |
 | `Super + S` | Alternar maximizado |
 | `Super + E` | Alternar direção do split |

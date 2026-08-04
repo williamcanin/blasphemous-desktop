@@ -14,7 +14,7 @@ painel lateral de informações do sistema e uma sidebar na direita com Quickshe
 ## Documentação
 
 - [Features e Componentes](https://williamcanin.github.io/my-environment/features/) — o que o ambiente oferece e quais ferramentas compõem o setup.
-- [Temas](https://williamcanin.github.io/my-environment/themes/) — os 10 temas inspirados em [Blasphemous I](https://thegamekitchen.com/blasphemous) e [Blasphemous II](https://www.blasphemous2game.com/), como trocar e a estrutura de arquivos.
+- [Temas](https://williamcanin.github.io/my-environment/themes/) — os 11 temas inspirados em [Blasphemous I](https://thegamekitchen.com/blasphemous) e [Blasphemous II](https://www.blasphemous2game.com/), como trocar e a estrutura de arquivos.
 - [Galeria de Temas](https://williamcanin.github.io/my-environment/gallery/) — prévia visual de cada tema.
 - [Uso no dia a dia](https://williamcanin.github.io/my-environment/usage/) — sidebar, scripts e atalhos de teclado.
 - [Instalação](https://williamcanin.github.io/my-environment/install/) — requisitos e como instalar (online ou offline).

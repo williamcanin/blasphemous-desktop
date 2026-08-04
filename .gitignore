@@ -8,6 +8,5 @@
 tmp/
 src/config/quickshell/*.zip
 src/config/quickshell/*.png
-src/config/hypr/wallpapers/hyprashen-light.png
 src/config/my-environment/.gtk-mode
 TODO.txt

@@ -1,21 +1,21 @@
-# HyprAshen theme for Bottom
+# Blasphemous Penitent theme for Bottom
 
 [color]
-background = "#181818"
-foreground = "#757575"
-border = "#757575"
-text = "#757575"
-selected_text = "#181818"
-selected_bg = "#757575"
+background = "#000000"
+foreground = "#e0e0e0"
+border = "#e0e0e0"
+text = "#e0e0e0"
+selected_text = "#000000"
+selected_bg = "#e0e0e0"
 
 [colors]
-cpu_color = "#757575"
-mem_color = "#757575"
-swap_color = "#333333"
-rx_color = "#757575"
-tx_color = "#757575"
-rx_total_color = "#333333"
-tx_total_color = "#757575"
-process_color = "#757575"
-process_highlighted_color = "#757575"
-average_cpu_color = "#757575"
+cpu_color = "#e0e0e0"
+mem_color = "#888888"
+swap_color = "#666666"
+rx_color = "#cccccc"
+tx_color = "#e0e0e0"
+rx_total_color = "#aaaaaa"
+tx_total_color = "#cccccc"
+process_color = "#e0e0e0"
+process_highlighted_color = "#ffffff"
+average_cpu_color = "#cccccc"

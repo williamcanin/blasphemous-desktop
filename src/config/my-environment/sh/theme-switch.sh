@@ -11,38 +11,34 @@ ACTIVE_FILE="${HOME}/.config/my-environment/.active-theme"
 if [ -z "$THEME" ]; then
   THEME=$(
     rofi -dmenu -p "   Select Theme" -i -theme-str 'listview {lines: 12;}' <<'EOF'
-01 - HyprAshen
-02 - HyprSlate
-03 - Blasphemous - Penitent
-04 - Blasphemous - Echoes Of Salt
-05 - Blasphemous - Fragment Of Guilt
-06 - Blasphemous - Kneeling Stone
-07 - Blasphemous - Requiem Aeternam
-08 - Blasphemous - Ten Piedad
-09 - Blasphemous II - Mea Culpa
-10 - Blasphemous II - Repose Of The Silent One
-11 - Blasphemous II - Red Forest
-12 - Blasphemous II - The Third Sin
-13 - Blasphemous II - Main Menu
+01 - Blasphemous - Penitent
+02 - Blasphemous - Echoes Of Salt
+03 - Blasphemous - Fragment Of Guilt
+04 - Blasphemous - Kneeling Stone
+05 - Blasphemous - Requiem Aeternam
+06 - Blasphemous - Ten Piedad
+07 - Blasphemous II - Mea Culpa
+08 - Blasphemous II - Repose Of The Silent One
+09 - Blasphemous II - Red Forest
+10 - Blasphemous II - The Third Sin
+11 - Blasphemous II - Main Menu
 EOF
   )
 
   [ -z "$THEME" ] && exit 0
 
   case "$THEME" in
-    "01 - HyprAshen")                             THEME="hyprashen" ;;
-    "02 - HyprSlate")                             THEME="hyprslate" ;;
-    "03 - Blasphemous - Penitent")                THEME="blasphemous-penitent" ;;
-    "04 - Blasphemous - Echoes Of Salt")          THEME="blasphemous-echoes-of-salt" ;;
-    "05 - Blasphemous - Fragment Of Guilt")       THEME="blasphemous-fragment-of-guilt" ;;
-    "06 - Blasphemous - Kneeling Stone")          THEME="blasphemous-kneeling-stone" ;;
-    "07 - Blasphemous - Requiem Aeternam")        THEME="blasphemous-requiem-aeternam" ;;
-    "08 - Blasphemous - Ten Piedad")              THEME="blasphemous-ten-piedad" ;;
-    "09 - Blasphemous II - Mea Culpa")            THEME="blasphemous-mea-culpa" ;;
-    "10 - Blasphemous II - Repose Of The Silent One") THEME="blasphemous-II-repose-of-the-silent-one" ;;
-    "11 - Blasphemous II - Red Forest")           THEME="blasphemous-II-red-forest" ;;
-    "12 - Blasphemous II - The Third Sin")        THEME="blashphemous-II-the-third-sin" ;;
-    "13 - Blasphemous II - Main Menu")             THEME="blasphemous-II-main-menu" ;;
+    "01 - Blasphemous - Penitent")                THEME="blasphemous-penitent" ;;
+    "02 - Blasphemous - Echoes Of Salt")          THEME="blasphemous-echoes-of-salt" ;;
+    "03 - Blasphemous - Fragment Of Guilt")       THEME="blasphemous-fragment-of-guilt" ;;
+    "04 - Blasphemous - Kneeling Stone")          THEME="blasphemous-kneeling-stone" ;;
+    "05 - Blasphemous - Requiem Aeternam")        THEME="blasphemous-requiem-aeternam" ;;
+    "06 - Blasphemous - Ten Piedad")              THEME="blasphemous-ten-piedad" ;;
+    "07 - Blasphemous II - Mea Culpa")            THEME="blasphemous-mea-culpa" ;;
+    "08 - Blasphemous II - Repose Of The Silent One") THEME="blasphemous-II-repose-of-the-silent-one" ;;
+    "09 - Blasphemous II - Red Forest")           THEME="blasphemous-II-red-forest" ;;
+    "10 - Blasphemous II - The Third Sin")        THEME="blashphemous-II-the-third-sin" ;;
+    "11 - Blasphemous II - Main Menu")             THEME="blasphemous-II-main-menu" ;;
     *) printf 'Invalid theme selection\n' >&2; exit 1 ;;
   esac
 fi
@@ -156,24 +152,6 @@ _waybar_cfg_sysinfo="$(paths_config waybar/sysinfo.jsonc)"
 _sysinfo_css="$(paths_config waybar/sysinfo.css)"
 
 case "$THEME" in
-  hyprslate | hyprashen)
-    sed -i "s|\"margin-top\": [0-9]*|\"margin-top\": 0|" "$_waybar_cfg"
-    sed -i "s|\"margin-left\": [0-9]*|\"margin-left\": 0|" "$_waybar_cfg"
-    sed -i "s|\"margin-right\": [0-9]*|\"margin-right\": 0|" "$_waybar_cfg"
-    sed -i "s|\"margin-bottom\": -\?[0-9]*|\"margin-bottom\": 3|" "$_waybar_cfg"
-    sed -i "s|\"margin-top\": -\?[0-9]*|\"margin-top\": 1|" "$_waybar_cfg_sysinfo"
-    sed -i "s|\"margin-left\": -\?[0-9]*|\"margin-left\": 1|" "$_waybar_cfg_sysinfo"
-    sed -i "s|\"margin-bottom\": -\?[0-9]*|\"margin-bottom\": 1|" "$_waybar_cfg_sysinfo"
-    sed -i '/^window#waybar {/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$(paths_config waybar/style.css)"
-    sed -i '/^#workspaces button$/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$(paths_config waybar/style.css)"
-    sed -i '/^#workspaces button\.active,/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$(paths_config waybar/style.css)"
-    sed -i '/^tooltip {/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$(paths_config waybar/style.css)"
-    sed -i '/#right-0, #right-1, #right-2, #mpris {/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$(paths_config waybar/style.css)"
-    sed -i '/^window#waybar {/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$_sysinfo_css"
-    _rofi_cfg="$(paths_config rofi/themes/blasphemous-echoes-of-salt-colored.rasi)"
-    sed -i '/^window {/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$_rofi_cfg"
-    sed -i '/^element selected.normal {/,/^}/s/border-radius: [0-9]*px;/border-radius: 0px;/' "$_rofi_cfg"
-    ;;
   *)
     sed -i "s|\"margin-top\": [0-9]*|\"margin-top\": 5|" "$_waybar_cfg"
     sed -i "s|\"margin-left\": [0-9]*|\"margin-left\": 20|" "$_waybar_cfg"
@@ -282,18 +260,6 @@ sh "$(paths_config hypr/scripts/init.sh)" --waybars
 # Set wallpaper for the new theme
 HYPRPAPER_FILE="$(paths_config hypr/hyprpaper.conf)"
 HYPRPAPER_DIR="$(paths_config hypr/wallpapers)"
-
-# Generate solid-color wallpaper for themes without an image
-if [ "$THEME" = "hyprslate" ]; then
-  _solid="${HYPRPAPER_DIR}/${THEME}.png"
-  if [ ! -f "$_solid" ]; then
-    if command -v magick >/dev/null 2>&1; then
-      magick -size 1920x1080 xc:'#2F3541' "$_solid" 2>/dev/null || true
-    elif command -v convert >/dev/null 2>&1; then
-      convert -size 1920x1080 xc:'#2F3541' "$_solid" 2>/dev/null || true
-    fi
-  fi
-fi
 
 apply_wallpaper "$(find_theme_wallpaper "$THEME")"
 

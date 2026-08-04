@@ -172,10 +172,10 @@ copy_configs() {
     ok "$name"
   done
 
-  ENV_BOOTSTRAP_SRC="$CONFIG_SRC/my-environment/.environment-bootstrap"
+  ENV_BOOTSTRAP_SRC="$CONFIG_SRC/my-environment/.my-environment-bootstrap"
   if [ -f "$ENV_BOOTSTRAP_SRC" ]; then
-    cp -v "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.environment-bootstrap"
-    ok ".environment-bootstrap"
+    cp -v "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.my-environment-bootstrap"
+    ok ".my-environment-bootstrap"
   fi
 
   find "$CONFIG_DST" -maxdepth 1 -name "*.bak.*" -mtime +30 | while IFS= read -r old; do

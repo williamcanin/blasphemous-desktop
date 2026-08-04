@@ -93,7 +93,7 @@ remove_configs() {
     fi
   done
 
-  bootstrap_dst="$CONFIG_DST/.environment-bootstrap"
+  bootstrap_dst="$CONFIG_DST/.my-environment-bootstrap"
   if [ -f "$bootstrap_dst" ]; then
     if $DRY_RUN; then
       warn "[DRY-RUN] rm $bootstrap_dst"
@@ -277,8 +277,8 @@ list_installed_configs() {
       fi
     done
   fi
-  if [ -f "$CONFIG_DST/.environment-bootstrap" ]; then
-    printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.environment-bootstrap"
+  if [ -f "$CONFIG_DST/.my-environment-bootstrap" ]; then
+    printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.my-environment-bootstrap"
   fi
 
   echo ""

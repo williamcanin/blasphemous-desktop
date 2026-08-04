@@ -6,7 +6,7 @@
 
 -- Theme loader --------------------------------------------------------------------------------------------------------
 local _theme_file = io.open(os.getenv("HOME") .. "/.config/my-environment/.active-theme")
-local _theme_name = "hyprashen"
+local _theme_name = "blasphemous-echoes-of-salt"
 if _theme_file then
   local _line = _theme_file:read("*l")
   if _line and _line ~= "" then

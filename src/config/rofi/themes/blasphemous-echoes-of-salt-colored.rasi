@@ -1,4 +1,4 @@
-@import "~/.config/rofi/themes/hyprashen/theme.rasi"
+@import "~/.config/rofi/themes/blasphemous-echoes-of-salt/theme.rasi"
 @import "~/.config/rofi/mode.rasi"
 
 /* Author: William C. Canin */
