@@ -43,8 +43,7 @@ PACKAGES="
   ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono-nerd otf-font-awesome vivid
   libnotify pamixer wireplumber networkmanager swappy foot snappy-switcher
   smog-bin xarchiver zip just libqalculate fontconfig qt5-quickcontrols2
-  kvantum nwg-look qt5ct qt6ct qt6-declarative qt6-tools cosmic-files
-  cosmic-settings file-roller pwvucontrol wtype fastfetch polkit-gnome bluez
+  kvantum nwg-look qt5ct qt6ct qt6-declarative qt6-tools file-roller pwvucontrol wtype fastfetch polkit-gnome bluez
   bluez-utils blueman imv hyprpolkitagent superfile
 "
 
