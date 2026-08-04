@@ -53,7 +53,7 @@ theme-switch blasphemous-echoes-of-salt
 O tema ativo é armazenado em:
 
 ```text
-~/.config/my-environment/.active-theme
+~/.config/blasphemous-desktop/.active-theme
 ```
 
 ## Estrutura de arquivos do tema

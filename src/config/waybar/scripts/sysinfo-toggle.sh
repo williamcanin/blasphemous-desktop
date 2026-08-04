@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC1091
-. "$HOME/.config/.my-environment-bootstrap"
+. "$HOME/.config/.blasphemous-desktop-bootstrap"
 
 STATE_FILE="$HOME/.cache/waybar/sysinfo-state"
 CFG="$(paths_config waybar/sysinfo.jsonc)"

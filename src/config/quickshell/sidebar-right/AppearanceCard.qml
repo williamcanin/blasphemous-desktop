@@ -113,7 +113,7 @@ BaseCard {
 
     Process {
         id: themeProc
-        command: ["sh", "-c", "$HOME/.config/my-environment/sh/theme-switch.sh"]
+        command: ["sh", "-c", "$HOME/.config/blasphemous-desktop/sh/theme-switch.sh"]
         onExited: Theme.reloadActiveTheme()
     }
 

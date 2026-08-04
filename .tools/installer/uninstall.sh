@@ -20,7 +20,7 @@ CONFIG_SRC="$REPO_ROOT/src/config"
 CONFIG_DST="$HOME/.config"
 FONTS_SRC="$REPO_ROOT/src/fonts"
 FONTS_DST="$HOME/.local/share/fonts"
-LOCK_FILE="$CONFIG_DST/my-environment/.install.lock"
+LOCK_FILE="$CONFIG_DST/blasphemous-desktop/.install.lock"
 
 DRY_RUN=false
 REMOVE_BACKUPS=false
@@ -53,7 +53,7 @@ confirm() {
 remove_symlinks() {
   log "Removing symbolic links from ~/.local/bin..." "\n"
 
-  for link in "kitty-help" "my-environment-theme" "theme-switch"; do
+  for link in "kitty-help" "blasphemous-desktop-theme" "theme-switch"; do
     target="$HOME/.local/bin/$link"
     if [ -L "$target" ] || [ -f "$target" ]; then
       if $DRY_RUN; then
@@ -93,7 +93,7 @@ remove_configs() {
     fi
   done
 
-  bootstrap_dst="$CONFIG_DST/.my-environment-bootstrap"
+  bootstrap_dst="$CONFIG_DST/.blasphemous-desktop-bootstrap"
   if [ -f "$bootstrap_dst" ]; then
     if $DRY_RUN; then
       warn "[DRY-RUN] rm $bootstrap_dst"
@@ -277,13 +277,13 @@ list_installed_configs() {
       fi
     done
   fi
-  if [ -f "$CONFIG_DST/.my-environment-bootstrap" ]; then
-    printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.my-environment-bootstrap"
+  if [ -f "$CONFIG_DST/.blasphemous-desktop-bootstrap" ]; then
+    printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.blasphemous-desktop-bootstrap"
   fi
 
   echo ""
   accent "Symlinks:"
-  for link in "kitty-help" "my-environment-theme" "theme-switch"; do
+  for link in "kitty-help" "blasphemous-desktop-theme" "theme-switch"; do
     target="$HOME/.local/bin/$link"
     [ -L "$target" ] && printf "  %b•%b %s → %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$target" "$(readlink "$target")"
     [ -f "$target" ] && printf "  %b•%b %s (file)\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$target"
@@ -322,7 +322,7 @@ list_installed_configs() {
 
 uninstall() {
   echo ""
-  log "my-environment — Uninstall" "\n"
+  log "blasphemous-desktop — Uninstall" "\n"
   echo "========================================"
   warn "This will remove configurations installed by this project."
   warn "Backups made during installation will be preserved in ~/.config/*.bak.*"

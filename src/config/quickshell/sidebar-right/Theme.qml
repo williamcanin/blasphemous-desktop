@@ -13,7 +13,7 @@ Singleton {
     FileView {
         id: themeNameFile
         path: StandardPaths.writableLocation(StandardPaths.HomeLocation) +
-              "/.config/my-environment/.active-theme"
+              "/.config/blasphemous-desktop/.active-theme"
         onTextChanged: {
             var n = text().trim()
             if (n !== "") root.themeName = n
@@ -23,7 +23,7 @@ Singleton {
     FileView {
         id: gtkModeFile
         path: StandardPaths.writableLocation(StandardPaths.HomeLocation) +
-              "/.config/my-environment/.gtk-mode"
+              "/.config/blasphemous-desktop/.gtk-mode"
         onTextChanged: {
             var m = text().trim()
             if (m === "light" || m === "dark") root.gtkMode = m

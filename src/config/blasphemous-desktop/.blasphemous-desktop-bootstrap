@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+# shellcheck shell=sh disable=SC1091
+#
+# .blasphemous-desktop-bootstrap — PONTO DE ENTRADA ÚNICO
+#
+# Path fixo em ~/.config/.blasphemous-desktop-bootstrap.
+# Se o diretório de instalação mudar, atualize APENAS este arquivo.
+#
+# Uso em scripts:
+#   . "${HOME}/.config/.blasphemous-desktop-bootstrap"
+
+ENVIRONMENT_ROOT="${HOME}/.config/blasphemous-desktop"
+. "${ENVIRONMENT_ROOT}/sh/bootstrap.sh"

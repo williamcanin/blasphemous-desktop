@@ -5,13 +5,13 @@
 # bootstrap.sh — Carrega automaticamente todos os módulos compartilhados.
 #
 # Uso em scripts:
-#   . "${HOME}/.config/.my-environment-bootstrap"
+#   . "${HOME}/.config/.blasphemous-desktop-bootstrap"
 #
 # Isso disponibiliza todas as APIs (log_*, string_*, json_*, ...)
 # e variáveis globais (WALLPAPER_PATH, BUTTON_LAYOUT, ...).
 # =============================================================================
 
-ENVIRONMENT_ROOT="${HOME}/.config/my-environment"
+ENVIRONMENT_ROOT="${HOME}/.config/blasphemous-desktop"
 MODULES_DIR="${ENVIRONMENT_ROOT}/sh"
 
 . "${MODULES_DIR}/variables.sh"

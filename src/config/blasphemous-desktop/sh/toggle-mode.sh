@@ -14,7 +14,7 @@ else
 fi
 
 # Read current theme
-THEME="$(cat "$HOME/.config/my-environment/.active-theme" 2>/dev/null || echo "blasphemous-echoes-of-salt")"
+THEME="$(cat "$HOME/.config/blasphemous-desktop/.active-theme" 2>/dev/null || echo "blasphemous-echoes-of-salt")"
 HYPRPAPER_FILE="$HOME/.config/hypr/hyprpaper.conf"
 HYPRPAPER_DIR="$HOME/.config/hypr/wallpapers"
 HYPR_THEMES="$HOME/.config/hypr/themes"
@@ -23,7 +23,7 @@ apply_wallpaper_runtime() {
   _wall="$1"
 
   if command -v hyprpaper >/dev/null 2>&1; then
-    systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
+    systemctl --user stop blasphemous-desktop-wallpaper.service 2>/dev/null || true
     pkill -x swaybg 2>/dev/null || true
     systemctl --user restart hyprpaper 2>/dev/null || {
       pkill -x hyprpaper 2>/dev/null || true
@@ -106,6 +106,6 @@ printf '/* mode.rasi — Dark mode (no overrides) */\n' > "$MODE_RASI"
 # ==============================================================================
 # QUICKSHELL — .gtk-mode flag
 # ==============================================================================
-GTK_MODE_FILE="$HOME/.config/my-environment/.gtk-mode"
+GTK_MODE_FILE="$HOME/.config/blasphemous-desktop/.gtk-mode"
 mkdir -p "$(dirname "$GTK_MODE_FILE")"
 printf '%s\n' "$MODE" > "$GTK_MODE_FILE"

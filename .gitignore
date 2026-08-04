@@ -8,5 +8,5 @@
 tmp/
 src/config/quickshell/*.zip
 src/config/quickshell/*.png
-src/config/my-environment/.gtk-mode
+src/config/blasphemous-desktop/.gtk-mode
 TODO.txt

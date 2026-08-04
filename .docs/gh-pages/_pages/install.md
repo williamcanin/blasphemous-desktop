@@ -25,25 +25,25 @@ O script `.tools/setup.sh` funciona tanto como instalador local quanto como inst
 **Instalação online (RECOMENDADO) — baixa a última release estável:**
 
 ```sh
-sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)"
+sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)"
 ```
 
 Liste as versões disponíveis:
 
 ```sh
-sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- --releases
+sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- --releases
 ```
 
 Instalar uma versão específica:
 
 ```sh
-sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- 0.2.0
+sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- 0.2.0
 ```
 
 **Instalação offline (a partir do repositório clonado):**
 
 ```sh
-git clone --depth=1 https://github.com/williamcanin/my-environment.git && cd my-environment && sh .tools/setup.sh --install
+git clone --depth=1 https://github.com/williamcanin/blasphemous-desktop.git && cd blasphemous-desktop && sh .tools/setup.sh --install
 ```
 
 > Nota: Essa forma de instalação usa a branch principal (`main`), que pode conter arquivos com bugs por falta de revisão. Prefira sempre a opção `RECOMENDADA` que usa releases estáveis.

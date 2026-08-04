@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC1091
-. "$HOME/.config/.my-environment-bootstrap"
+. "$HOME/.config/.blasphemous-desktop-bootstrap"
 
 if locale_is_pt; then
   CHEAT_FILE="$HOME/.config/hypr/docs/cheatsheets/pt.txt"

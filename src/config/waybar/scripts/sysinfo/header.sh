@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC1091
-. "$HOME/.config/.my-environment-bootstrap"
+. "$HOME/.config/.blasphemous-desktop-bootstrap"
 
 key="$1"
 

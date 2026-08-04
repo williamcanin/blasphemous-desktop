@@ -9,7 +9,7 @@ permalink: /gallery/
 <div class="theme-gallery">
 <a class="back-link" href="{{ '/' | relative_url }}">&larr; Voltar para HOME</a>
 
-<p>Galeria com prévias de todos os temas do <strong>my-environment</strong>. Clique em qualquer miniatura para abrir em tela cheia e navegue entre as imagens do mesmo tema usando as setas.</p>
+<p>Galeria com prévias de todos os temas do <strong>blasphemous-desktop</strong>. Clique em qualquer miniatura para abrir em tela cheia e navegue entre as imagens do mesmo tema usando as setas.</p>
 
 <!--
   PADRÃO DE PASTAS ESPERADO (ajuste os nomes de arquivo conforme os seus):

@@ -5,7 +5,7 @@
 -- ===================================
 
 -- Theme loader --------------------------------------------------------------------------------------------------------
-local _theme_file = io.open(os.getenv("HOME") .. "/.config/my-environment/.active-theme")
+local _theme_file = io.open(os.getenv("HOME") .. "/.config/blasphemous-desktop/.active-theme")
 local _theme_name = "blasphemous-echoes-of-salt"
 if _theme_file then
   local _line = _theme_file:read("*l")
@@ -312,10 +312,10 @@ hl.bind("mouse:274", hl.dsp.exec_cmd("qs -c sidebar-right ipc call sidebar toggl
 hl.bind(mod .. " + Y", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/wallpaper-pick.sh"))
 
 -- Theme switcher ------------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + SHIFT + T", hl.dsp.exec_cmd("sh ~/.config/my-environment/sh/theme-switch.sh"))
+hl.bind(mod .. " + SHIFT + T", hl.dsp.exec_cmd("sh ~/.config/blasphemous-desktop/sh/theme-switch.sh"))
 
 -- GTK Theme Dark/Light ------------------------------------------------------------------------------------------------
-hl.bind(mod .. " + F5", hl.dsp.exec_cmd("sh ~/.config/my-environment/sh/toggle-mode.sh"))
+hl.bind(mod .. " + F5", hl.dsp.exec_cmd("sh ~/.config/blasphemous-desktop/sh/toggle-mode.sh"))
 
 -- Finder --------------------------------------------------------------------------------------------------------------
 hl.bind(mod .. " + D", hl.dsp.exec_cmd('rofi -show drun -display-drun "drun"'))

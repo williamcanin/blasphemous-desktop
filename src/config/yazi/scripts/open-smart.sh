@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC1091
-. "$HOME/.config/.my-environment-bootstrap"
+. "$HOME/.config/.blasphemous-desktop-bootstrap"
 
 EDITOR=nvim
 YAZI="/usr/bin/yazi"

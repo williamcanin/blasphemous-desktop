@@ -60,7 +60,7 @@ A sidebar carrega o tema dinamicamente — ao trocar o tema, as cores são atual
 | `network.sh` | Informações de rede |
 | `gpu.sh` | Detalhes da GPU |
 
-### Shell library (`src/config/my-environment/sh/`)
+### Shell library (`src/config/blasphemous-desktop/sh/`)
 
 | Módulo | Função |
 | --- | --- |

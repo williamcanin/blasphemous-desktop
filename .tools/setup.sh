@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # shellcheck disable=SC1091,SC2086,SC2034,SC2016,SC2317,SC2329
 #
-# setup.sh — Single-file installer/uninstaller for my-environment
+# setup.sh — Single-file installer/uninstaller for blasphemous-desktop
 #
 # Local usage (from the repository):
 #   sh .tools/setup.sh --install
@@ -12,13 +12,13 @@
 #   sh .tools/setup.sh --version
 #
 # Online usage (via GitHub Releases):
-#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)"
-#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- 0.2.0
-#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- --releases
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)"
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- 0.2.0
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- --releases
 #
 # Pipe form (non-interactive only):
-#   curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh
-#   curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh -s -- 0.2.0
+#   curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh | sh
+#   curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh | sh -s -- 0.2.0
 #
 # Makefile-compatible targets:
 #   make install    -> sh .tools/setup.sh --install
@@ -34,7 +34,7 @@ VERSION="0.2.4 (Blasphemous)"
 
 # --- Variables ----------------------------------------------------------------
 USED_SHELL="/usr/bin/zsh"
-ENVIRONMENT_ROOT="${HOME}/.config/my-environment"
+ENVIRONMENT_ROOT="${HOME}/.config/blasphemous-desktop"
 HYPR_CACHE_DIR="${HOME}/.cache/hypr"
 WAYBAR_CACHE_DIR="${HOME}/.cache/waybar"
 BUTTON_LAYOUT=":"
@@ -48,10 +48,10 @@ ACTIVE_THEME="blasphemous-echoes-of-salt"
 
 # Release installer config
 AUTHOR_NAME="William C. Canin"
-NAME_PROJECT="my-environment"
-REPO="williamcanin/my-environment"
+NAME_PROJECT="blasphemous-desktop"
+REPO="williamcanin/blasphemous-desktop"
 API="https://api.github.com/repos/${REPO}"
-SITE_URL="https://williamcanin.github.io/my-environment"
+SITE_URL="https://williamcanin.github.io/blasphemous-desktop"
 
 # ============================================================================
 # MESSAGE FUNCTIONS
@@ -248,7 +248,7 @@ init_paths() {
   CONFIG_DST="$HOME/.config"
   FONTS_SRC="$REPO_ROOT/src/fonts"
   FONTS_DST="$HOME/.local/share/fonts"
-  LOCK_FILE="$CONFIG_DST/my-environment/.install.lock"
+  LOCK_FILE="$CONFIG_DST/blasphemous-desktop/.install.lock"
 }
 
 # ============================================================================
@@ -332,10 +332,10 @@ copy_configs() {
     ok "$name"
   done
 
-  ENV_BOOTSTRAP_SRC="$CONFIG_SRC/my-environment/.my-environment-bootstrap"
+  ENV_BOOTSTRAP_SRC="$CONFIG_SRC/blasphemous-desktop/.blasphemous-desktop-bootstrap"
   if [ -f "$ENV_BOOTSTRAP_SRC" ]; then
-    cp -f "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.my-environment-bootstrap"
-    ok ".my-environment-bootstrap"
+    cp -f "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.blasphemous-desktop-bootstrap"
+    ok ".blasphemous-desktop-bootstrap"
   fi
 
   find "$CONFIG_DST" -maxdepth 1 -name "*.bak.*" -mtime +30 | while IFS= read -r old; do
@@ -360,7 +360,7 @@ symlinks() {
   log "Creating symbolic links..." "\n"
   mkdir -p "$HOME/.local/bin"
   symlink "$HOME/.config/kitty/scripts/shortcuts.sh" "$HOME/.local/bin/kitty-help"
-  symlink "$HOME/.config/my-environment/sh/theme-switch.sh" "$HOME/.local/bin/theme-switch"
+  symlink "$HOME/.config/blasphemous-desktop/sh/theme-switch.sh" "$HOME/.local/bin/theme-switch"
   ok "Creation of symbolic links completed."
   warn "Adding \"\$HOME/.local/bin\" in PATH"
 }
@@ -802,7 +802,7 @@ remove_configs() {
       warn "Not found: $dst_dir"
     fi
   done
-  bootstrap_dst="$CONFIG_DST/.my-environment-bootstrap"
+  bootstrap_dst="$CONFIG_DST/.blasphemous-desktop-bootstrap"
   if [ -f "$bootstrap_dst" ]; then
     dry rm -f "$bootstrap_dst"
     ok "Removed: $bootstrap_dst"
@@ -928,8 +928,8 @@ list_installed_configs() {
       fi
     done
   fi
-  if [ -f "$CONFIG_DST/.my-environment-bootstrap" ]; then
-    printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.my-environment-bootstrap"
+  if [ -f "$CONFIG_DST/.blasphemous-desktop-bootstrap" ]; then
+    printf "  %b•%b %s\n" "$MSG_COLOR_GREEN" "$MSG_COLOR_RESET" "$CONFIG_DST/.blasphemous-desktop-bootstrap"
   fi
   echo ""
   accent "Symlinks:"
@@ -970,7 +970,7 @@ list_installed_configs() {
 
 uninstall() {
   echo ""
-  log "my-environment — Uninstall" "\n"
+  log "blasphemous-desktop — Uninstall" "\n"
   echo "========================================"
   warn "This will remove configurations installed by this project."
   warn "Backups made during installation will be preserved in ~/.config/*.bak.*"
@@ -1071,10 +1071,10 @@ WORKDIR=""
 dir="$(dirname "$0" 2>/dev/null)" || dir="."
 SCRIPT_DIR="$(cd "$dir" 2>/dev/null && pwd 2>/dev/null || pwd)"
 
-if [ -f "$SCRIPT_DIR/src/config/my-environment/.my-environment-bootstrap" ] || \
-   [ -f "$(pwd)/src/config/my-environment/.my-environment-bootstrap" ]; then
+if [ -f "$SCRIPT_DIR/src/config/blasphemous-desktop/.blasphemous-desktop-bootstrap" ] || \
+   [ -f "$(pwd)/src/config/blasphemous-desktop/.blasphemous-desktop-bootstrap" ]; then
   LOCAL_MODE=true
-  if [ -f "$SCRIPT_DIR/src/config/my-environment/.my-environment-bootstrap" ]; then
+  if [ -f "$SCRIPT_DIR/src/config/blasphemous-desktop/.blasphemous-desktop-bootstrap" ]; then
     REPO_ROOT="$SCRIPT_DIR"
   else
     REPO_ROOT="$(pwd)"
@@ -1132,7 +1132,7 @@ case "${1:-}" in
     if [ "$LOCAL_MODE" = false ]; then
       tmpdir="$(mktemp -d)"
       trap 'rm -rf "$tmpdir"' EXIT INT TERM
-      git clone --depth 1 https://github.com/williamcanin/my-environment.git "$tmpdir" || \
+      git clone --depth 1 https://github.com/williamcanin/blasphemous-desktop.git "$tmpdir" || \
         die "Failed to clone repository."
       REPO_ROOT="$tmpdir"
       init_paths

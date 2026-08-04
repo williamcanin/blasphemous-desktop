@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # shellcheck disable=SC1091
-. "$HOME/.config/.my-environment-bootstrap"
+. "$HOME/.config/.blasphemous-desktop-bootstrap"
 
 # Run xdg-user
 xdg-user-dirs-update
@@ -9,7 +9,7 @@ xdg-user-dirs-update
 start_wallpaper() {
   [ -n "$WALLPAPER_PATH" ] || return 0
 
-  systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
+  systemctl --user stop blasphemous-desktop-wallpaper.service 2>/dev/null || true
   pkill -x swaybg 2>/dev/null || true
 
   if command -v hyprpaper >/dev/null 2>&1 && ! pgrep -x hyprpaper >/dev/null 2>&1; then

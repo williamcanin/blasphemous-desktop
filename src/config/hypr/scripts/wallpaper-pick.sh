@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-. "$HOME/.config/.my-environment-bootstrap"
+. "$HOME/.config/.blasphemous-desktop-bootstrap"
 
 WALLPAPERS_DIR="${HOME}/.config/hypr/wallpapers"
 SELECTED_FILE=$(mktemp)
@@ -9,7 +9,7 @@ apply_wallpaper_runtime() {
   _wall="$1"
 
   if command -v hyprpaper >/dev/null 2>&1; then
-    systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
+    systemctl --user stop blasphemous-desktop-wallpaper.service 2>/dev/null || true
     pkill -x swaybg 2>/dev/null || true
     systemctl --user restart hyprpaper 2>/dev/null || {
       pkill -x hyprpaper 2>/dev/null || true

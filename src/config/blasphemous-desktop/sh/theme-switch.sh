@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
-# theme-switch - apply a named theme across the whole my-environment desktop
+# theme-switch - apply a named theme across the whole blasphemous-desktop desktop
 # Usage: theme-switch <theme-name>
 # shellcheck disable=SC1091
 
-. "${HOME}/.config/.my-environment-bootstrap"
+. "${HOME}/.config/.blasphemous-desktop-bootstrap"
 
 THEME="${1:-}"
-ACTIVE_FILE="${HOME}/.config/my-environment/.active-theme"
+ACTIVE_FILE="${HOME}/.config/blasphemous-desktop/.active-theme"
 
 if [ -z "$THEME" ]; then
   THEME=$(
@@ -61,7 +61,7 @@ apply_wallpaper_runtime() {
   _wall="$1"
 
   if command -v hyprpaper >/dev/null 2>&1; then
-    systemctl --user stop my-environment-wallpaper.service 2>/dev/null || true
+    systemctl --user stop blasphemous-desktop-wallpaper.service 2>/dev/null || true
     pkill -x swaybg 2>/dev/null || true
     systemctl --user restart hyprpaper 2>/dev/null || {
       pkill -x hyprpaper 2>/dev/null || true
@@ -247,7 +247,7 @@ rm -f "$HYPRLOCK_PATH"
 # Reset GTK mode to dark (mode.css + .gtk-mode) when switching themes
 MODE_CSS="$(paths_config waybar/mode.css)"
 printf '/* mode.css — reset on theme switch */\n' > "$MODE_CSS"
-GTK_MODE_FILE="${HOME}/.config/my-environment/.gtk-mode"
+GTK_MODE_FILE="${HOME}/.config/blasphemous-desktop/.gtk-mode"
 mkdir -p "$(dirname "$GTK_MODE_FILE")"
 printf 'dark\n' > "$GTK_MODE_FILE"
 

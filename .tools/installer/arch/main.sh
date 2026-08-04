@@ -30,7 +30,7 @@ CONFIG_SRC="$REPO_ROOT/src/config"
 CONFIG_DST="$HOME/.config"
 FONTS_SRC="$REPO_ROOT/src/fonts"
 FONTS_DST="$HOME/.local/share/fonts"
-LOCK_FILE="$CONFIG_DST/my-environment/.install.lock"
+LOCK_FILE="$CONFIG_DST/blasphemous-desktop/.install.lock"
 BASE_DEPS="git base-devel go gcc lua wayland wayland-protocols"
 PACKAGES="
   firefox hyprland hyprland-qt-support hyprpaper hypridle hyprshutdown hyprlock
@@ -159,10 +159,10 @@ copy_configs() {
   done
 
   # Install environment bootstrap (path fixo)
-  ENV_BOOTSTRAP_SRC="$CONFIG_SRC/my-environment/.my-environment-bootstrap"
+  ENV_BOOTSTRAP_SRC="$CONFIG_SRC/blasphemous-desktop/.blasphemous-desktop-bootstrap"
   if [ -f "$ENV_BOOTSTRAP_SRC" ]; then
-    cp -v "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.my-environment-bootstrap"
-    ok ".my-environment-bootstrap"
+    cp -v "$ENV_BOOTSTRAP_SRC" "$CONFIG_DST/.blasphemous-desktop-bootstrap"
+    ok ".blasphemous-desktop-bootstrap"
   fi
 
   # Remove backups older than 30 days
@@ -185,7 +185,7 @@ symlinks() {
 
   # Kitty Help shortcuts
   symlink "$HOME/.config/kitty/scripts/shortcuts.sh" "$HOME/.local/bin/kitty-help"
-  symlink "$HOME/.config/my-environment/sh/theme-switch.sh" "$HOME/.local/bin/my-environment-theme"
+  symlink "$HOME/.config/blasphemous-desktop/sh/theme-switch.sh" "$HOME/.local/bin/blasphemous-desktop-theme"
 
   ok "Creation of symbolic links completed."
   warn "Adding \"\$HOME/.local/bin\" in PATH"

@@ -1,14 +1,14 @@
 ---
 layout: base
-title: Meu Ambiente Desktop
+title: Blasphemous Desktop
 permalink: /
 ---
 
 <!-- markdownlint-disable MD025 -->
 
-# Meu Ambiente Desktop
+# Blasphemous Desktop
 
-[![GitHub Release](https://img.shields.io/github/v/release/williamcanin/my-environment?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/my-environment/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/williamcanin/blasphemous-desktop?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/blasphemous-desktop/releases)
 
 Configuração pessoal de desktop Wayland baseada em [Hyprland](https://hypr.land), com foco em um
 ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org) e [Fedora](https://fedoraproject.org) de [William C. Canin](https://williamcanin.github.io/).
@@ -29,11 +29,11 @@ O visual combina **Hyprland** com bordas discretas, blur, sombras, wallpaper, te
 ## Instalação rápida
 
 ```sh
-sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)"
+sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)"
 ```
 
 Versões específicas, instalação offline e demais detalhes: veja [Instalação]({{ '/install/' | relative_url }}).
 
 ## Licença
 
-Veja [LICENSE](https://github.com/williamcanin/my-environment/blob/main/LICENSE).
+Veja [LICENSE](https://github.com/williamcanin/blasphemous-desktop/blob/main/LICENSE).

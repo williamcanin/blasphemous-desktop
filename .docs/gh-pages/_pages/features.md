@@ -24,7 +24,7 @@ permalink: /features/
 - Bloqueio com `hyprlock`, wallpaper desfocado gerado por `magick`, idle via `hypridle` e tela de logout com `wlogout`.
 - Sistema completo de temas com 11 variações temáticas inspiradas em *Blasphemous* e *Blasphemous II*.
 - Wofi como launcher alternativo ao Rofi.
-- `my-environment/sh/` — biblioteca shell compartilhada com funções de logging, locale, notificações, JSON, manipulação de strings e caminhos.
+- `blasphemous-desktop/sh/` — biblioteca shell compartilhada com funções de logging, locale, notificações, JSON, manipulação de strings e caminhos.
 - Áudio via PipeWire/WirePlumber, controle por `wpctl`, `pamixer` e `pwvucontrol`.
 - Suporte a atalhos multimídia, brilho, color picker, emoji picker e navegador padrão.
 - Terminais Kitty e Foot com JetBrainsMono Nerd Font, Font Awesome e temas por tema ativo.

@@ -1,15 +1,15 @@
 #!/usr/bin/env sh
-# setup.sh — my-environment installer via GitHub Releases
+# setup.sh — blasphemous-desktop installer via GitHub Releases
 #
 # Usage (recommended — required if "make install" prompts for input,
 # e.g. distribution selection):
-#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)"
-#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- 0.1.1
-#   sh -c "$(curl -fsSL https://williamcanin.github.io/my-environment/setup.sh)" -- --releases
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)"
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- 0.1.1
+#   sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- --releases
 #
 # Usage (pipe form — only safe for fully non-interactive installs):
-#   curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh
-#   curl -fsSL https://williamcanin.github.io/my-environment/setup.sh | sh -s -- 0.1.1
+#   curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh | sh
+#   curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh | sh -s -- 0.1.1
 #
 # Why it matters: with "curl ... | sh", the script's stdin is the pipe
 # carrying the script source itself, so any interactive "read" further down
@@ -26,10 +26,10 @@
 set -eu
 
 # ===== Config =====
-NAME="my-environment"
-REPO="williamcanin/my-environment"
+NAME="blasphemous-desktop"
+REPO="williamcanin/blasphemous-desktop"
 API="https://api.github.com/repos/${REPO}"
-SITE_URL="https://williamcanin.github.io/my-environment"
+SITE_URL="https://williamcanin.github.io/blasphemous-desktop"
 WORKDIR=""
 
 # ===== Colors (with fallback when stdout is not a terminal) =====
