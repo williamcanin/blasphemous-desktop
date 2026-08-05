@@ -2,6 +2,10 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/williamcanin/blasphemous-desktop?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/blasphemous-desktop/releases)
 
+## Official page and information
+
+[https://williamcanin.github.io/blasphemous-desktop](https://williamcanin.github.io/blasphemous-desktop/)
+
 ## Quick installation
 
 ```sh
