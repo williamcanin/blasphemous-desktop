@@ -10,7 +10,7 @@ permalink: /install/
 
 ## Requirements
 
-- **Arch Linux** or **Fedora** 41+.
+- **Arch Linux**.
 - Wayland session with `systemd`.
 - Graphics card and drivers compatible with Wayland/Hyprland.
 
@@ -72,12 +72,9 @@ In remote installation (`sh -c "$(curl ...)"`), the installer also checks the us
 In summary, the installer:
 
 - **Arch**: installs `yay` (if needed) and packages via AUR;
-- **Fedora**: enables the `solopasha/hyprland` COPR and installs packages via `dnf`;
 - copies `src/config/*` to `~/.config`;
 - backs up existing directories in `~/.config/*.bak.DATE`;
 - copies `src/fonts` to `~/.local/share/fonts`;
 - updates the font cache;
 - adds `~/.config/term/options.sh` to the shell;
 - applies Firefox as the default browser and a dark GTK theme.
-
-> **Fedora**: `hyprshutdown` is compiled from source, `rofi-calc` is replaced by `qalculate-gtk`.

@@ -11,7 +11,7 @@ permalink: /
 [![GitHub Release](https://img.shields.io/github/v/release/williamcanin/blasphemous-desktop?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/blasphemous-desktop/releases)
 
 Personal Wayland desktop configuration based on [Hyprland](https://hypr.land), focused on a
-lightweight, straightforward and productive environment for [Arch Linux](https://archlinux.org) and [Fedora](https://fedoraproject.org) by [William C. Canin](https://williamcanin.github.io/).
+lightweight, straightforward and productive environment for [Arch Linux](https://archlinux.org) by [William C. Canin](https://williamcanin.github.io/).
 
 The repository gathers the configuration files, automation scripts, themes, fonts and shortcuts used in my daily setup.
 
