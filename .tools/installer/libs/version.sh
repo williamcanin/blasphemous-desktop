@@ -1,3 +1,3 @@
 # shellcheck shell=sh disable=SC2034
 
-VERSION="0.3.3"
+VERSION="0.3.6"
