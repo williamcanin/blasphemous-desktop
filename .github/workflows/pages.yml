@@ -33,17 +33,12 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
+          # The site is self-contained in .docs/gh-pages (config, pages,
+          # layouts, includes, assets). Building from the repo root would let
+          # Jekyll ignore the dot-prefixed .docs dir, and GitHub Pages would
+          # then serve README.md as the homepage.
+          source: .docs/gh-pages
           destination: ./_site
-      - name: Copy static assets
-        # Jekyll's include: [".docs"] doesn't reliably copy dot-prefixed dirs
-        # with actions/jekyll-build-pages. Copy assets manually to _site so
-        # images, CSS, and JS are served on GitHub Pages.
-        run: |
-          if [ -d ".docs/gh-pages/assets" ]; then
-            sudo mkdir -p ./_site/assets
-            sudo cp -r .docs/gh-pages/assets/* ./_site/assets/
-          fi
       - name: Copy setup.sh into the site
         # actions/jekyll-build-pages runs Jekyll inside a Docker container as root,
         # so ./_site ends up owned by root while this step runs as the regular

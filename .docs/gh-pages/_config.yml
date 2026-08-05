@@ -1,0 +1,17 @@
+title: ""
+description: "Blasphemous Desktop — Personal Wayland desktop configuration with Hyprland for Arch Linux and Fedora by William C. Canin"
+url: "https://williamcanin.github.io"
+baseurl: "/blasphemous-desktop"
+
+# This config lives inside the Jekyll source directory (.docs/gh-pages), which
+# is what the Pages workflow uses as `source:`. The repo-root README.md is
+# intentionally NOT part of the site — it is only rendered on the GitHub repo
+# page, not on GitHub Pages.
+
+layouts_dir: _layouts
+includes_dir: _includes
+
+# The documentation pages live in "_pages" (a collection) under the source dir.
+collections:
+  pages:
+    output: true
