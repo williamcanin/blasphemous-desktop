@@ -1,127 +1,127 @@
 ---
 layout: base
-title: Uso no dia a dia
+title: Daily usage
 permalink: /usage/
 ---
 
-<a href="{{ '/' | relative_url }}">&larr; Voltar para HOME</a>
+<a href="{{ '/' | relative_url }}">&larr; Back to HOME</a>
 
-# Uso no dia a dia
+# Daily usage
 
-## Sidebar Quickshell
+## Quickshell sidebar
 
-Sidebar direita com painéis expansíveis em QML:
+Right sidebar with expandable panels in QML:
 
-| Card | Função |
+| Card | Function |
 | --- | --- |
-| User | Avatar, nome, usuário@hostname |
-| Notifications | Histórico do Dunst (9 notificações, paginação) |
-| Calendar | Calendário interativo com navegação |
-| Weather | Clima via wttr.in (atualização a cada 15min) |
-| Volume | Controle de áudio com `wpctl` |
-| Network | IP, SSID, velocidades up/down |
-| System | CPU, RAM, GPU, VRAM, temperatura GPU |
-| Keyboard | Alternador de layout (BR ABNT2 / US) |
-| Appearance | Seleção de wallpaper e tema |
-| Power | Perfis de energia (powersave/balanced/performance) |
+| User | Avatar, name, user@hostname |
+| Notifications | Dunst history (9 notifications, pagination) |
+| Calendar | Interactive calendar with navigation |
+| Weather | Weather via wttr.in (updates every 15min) |
+| Volume | Audio control with `wpctl` |
+| Network | IP, SSID, up/down speeds |
+| System | CPU, RAM, GPU, VRAM, GPU temperature |
+| Keyboard | Layout switcher (BR ABNT2 / US) |
+| Appearance | Wallpaper and theme selection |
+| Power | Power profiles (powersave/balanced/performance) |
 
-A sidebar carrega o tema dinamicamente — ao trocar o tema, as cores são atualizadas sem reiniciar.
+The sidebar loads the theme dynamically — when switching themes, colors update without restarting.
 
 ## Scripts
 
 ### Hyprland (`src/config/hypr/scripts/`)
 
-| Script | Função |
+| Script | Function |
 | --- | --- |
-| `init.sh` | Inicialização/restart do ambiente |
-| `screenshot.sh` | Screenshot e gravação de tela |
-| `wallpaper-pick.sh` | Seletor de wallpaper com Yazi |
-| `power-menu.sh` | Menu de energia (lock/suspend/logout/reboot/shutdown) |
-| `cheatsheets.sh` | Cheatsheet de atalhos no Rofi |
+| `init.sh` | Environment startup/restart |
+| `screenshot.sh` | Screenshot and screen recording |
+| `wallpaper-pick.sh` | Wallpaper picker with Yazi |
+| `power-menu.sh` | Power menu (lock/suspend/logout/reboot/shutdown) |
+| `cheatsheets.sh` | Keyboard shortcut cheatsheet in Rofi |
 
 ### Waybar (`src/config/waybar/scripts/`)
 
-| Script | Função |
+| Script | Function |
 | --- | --- |
-| `taskbar.sh` | Dispatcher de ações da barra |
-| `window-or-mpris.sh` | Título da janela ativa ou MPRIS |
-| `netctl.sh` | Ativar/desativar interface de rede |
+| `taskbar.sh` | Bar action dispatcher |
+| `window-or-mpris.sh` | Active window title or MPRIS |
+| `netctl.sh` | Enable/disable network interface |
 
 ### Sysinfo (`src/config/waybar/scripts/sysinfo/`)
 
-| Script | Função |
+| Script | Function |
 | --- | --- |
-| `header.sh` | Cabeçalhos do painel (i18n) |
-| `machine-info.sh` | SO, kernel, CPU, GPU, uptime |
-| `temperature-usage_cpu-gpu.sh` | Temperatura e uso CPU/GPU |
-| `memory.sh` | Uso de RAM |
-| `storage.sh` | Uso de disco |
-| `top-processes.sh` | Top processos por CPU |
-| `network.sh` | Informações de rede |
-| `gpu.sh` | Detalhes da GPU |
+| `header.sh` | Panel headers (i18n) |
+| `machine-info.sh` | OS, kernel, CPU, GPU, uptime |
+| `temperature-usage_cpu-gpu.sh` | CPU/GPU temperature and usage |
+| `memory.sh` | RAM usage |
+| `storage.sh` | Disk usage |
+| `top-processes.sh` | Top processes by CPU |
+| `network.sh` | Network information |
+| `gpu.sh` | GPU details |
 
 ### Shell library (`src/config/blasphemous-desktop/sh/`)
 
-| Módulo | Função |
+| Module | Function |
 | --- | --- |
-| `bootstrap.sh` | Carrega todos os módulos |
-| `variables.sh` | Variáveis de ambiente do sistema |
-| `paths.sh` | Funções `paths_cache()` e `paths_config()` |
-| `locale.sh` | Detecção de locale PT/EN |
+| `bootstrap.sh` | Loads all modules |
+| `variables.sh` | System environment variables |
+| `paths.sh` | `paths_cache()` and `paths_config()` functions |
+| `locale.sh` | PT/EN locale detection |
 | `log.sh` | Logging (info, warn, error, die) |
-| `notify.sh` | Notificações via notify-send |
-| `string.sh` | Utilitários de string (barra de progresso) |
-| `json.sh` | Escape e saída JSON para Waybar |
-| `hypr.sh` | Parse de caminhos do Hyprland |
-| `theme-switch.sh` | Alternância completa de temas (symlink: `theme-switch`) |
-| `toggle-mode.sh` | Alterna modo claro/escuro (GTK + waybar + quickshell + rofi + wallpaper) |
+| `notify.sh` | Notifications via notify-send |
+| `string.sh` | String utilities (progress bar) |
+| `json.sh` | JSON escaping and output for Waybar |
+| `hypr.sh` | Hyprland path parsing |
+| `theme-switch.sh` | Full theme switching (symlink: `theme-switch`) |
+| `toggle-mode.sh` | Toggles light/dark mode (GTK + waybar + quickshell + rofi + wallpaper) |
 
-## Atalhos principais
+## Main shortcuts
 
-| Atalho | Ação |
+| Shortcut | Action |
 | --- | --- |
-| `Super + Enter` | Abrir Kitty |
-| `Super + Space` | Abrir Superfile (`spf`) |
-| `Super + D` | Abrir launcher Rofi |
-| `Super + B` | Abrir navegador padrão |
-| `Super + Q` | Fechar janela |
-| `Super + F5` | Alternar tema GTK claro/escuro |
-| `Super + F` | Alternar fullscreen |
-| `Super + S` | Alternar maximizado |
-| `Super + E` | Alternar direção do split |
-| `Super + W` | Agrupar/desagrupar janelas em abas |
-| `Super + Tab` | Navegar entre abas do grupo |
-| `Alt + Tab` | Alternar entre janelas com Snappy Switcher |
-| `Super + ,` | Abrir/fechar sidebar Quickshell |
-| `Super + Shift + T` | Selecionar tema com Rofi |
-| `Super + 1..9` | Ir para workspace |
-| `Super + Shift + 1..9` | Mover janela para workspace |
-| `Ctrl + Alt + ←/→` | Navegar workspaces (loop) |
-| `Super + ↑/↓/←/→` | Foco direcional |
-| `Super + Shift + ↑/↓/←/→` | Mover janela na direção |
-| `Super + R` | Entrar no modo resize para janela flutuante |
-| `Super + H` | Abrir histórico do clipboard |
-| `Super + Shift + H` | Limpar histórico do clipboard |
-| `Super + P` | Seletor de cores (hyprpicker) |
-| `Super + C` | Calculadora no Rofi |
-| `Super + .` | Seletor de emoji (rofimoji) |
-| `Super + L` | Bloquear sessão |
-| `Super + Esc` | Sair do sistema |
-| `Super + Shift + M` | Alternar DPMS do monitor |
-| `Super + Shift + R` | Recarregar Hyprland |
-| `Print` | Capturar região (hyprshot + satty) |
-| `Super + Print` | Capturar janela |
-| `Super + Shift + Print` | Capturar tela inteira |
-| `Super + G` | Iniciar, pausar ou retomar gravação |
-| `Super + Shift + G` | Parar e salvar gravação |
+| `Super + Enter` | Open Kitty |
+| `Super + Space` | Open Superfile (`spf`) |
+| `Super + D` | Open Rofi launcher |
+| `Super + B` | Open default browser |
+| `Super + Q` | Close window |
+| `Super + F5` | Toggle light/dark GTK theme |
+| `Super + F` | Toggle fullscreen |
+| `Super + S` | Toggle maximize |
+| `Super + E` | Toggle split direction |
+| `Super + W` | Group/ungroup windows into tabs |
+| `Super + Tab` | Navigate between group tabs |
+| `Alt + Tab` | Switch between windows with Snappy Switcher |
+| `Super + ,` | Open/close Quickshell sidebar |
+| `Super + Shift + T` | Select theme with Rofi |
+| `Super + 1..9` | Go to workspace |
+| `Super + Shift + 1..9` | Move window to workspace |
+| `Ctrl + Alt + ←/→` | Navigate workspaces (loop) |
+| `Super + ↑/↓/←/→` | Directional focus |
+| `Super + Shift + ↑/↓/←/→` | Move window in direction |
+| `Super + R` | Enter resize mode for floating window |
+| `Super + H` | Open clipboard history |
+| `Super + Shift + H` | Clear clipboard history |
+| `Super + P` | Color picker (hyprpicker) |
+| `Super + C` | Calculator in Rofi |
+| `Super + .` | Emoji picker (rofimoji) |
+| `Super + L` | Lock session |
+| `Super + Esc` | Exit system |
+| `Super + Shift + M` | Toggle monitor DPMS |
+| `Super + Shift + R` | Reload Hyprland |
+| `Print` | Capture region (hyprshot + satty) |
+| `Super + Print` | Capture window |
+| `Super + Shift + Print` | Capture entire screen |
+| `Super + G` | Start, pause or resume recording |
+| `Super + Shift + G` | Stop and save recording |
 
-Para ver a lista completa dentro da sessão:
+To see the full list inside the session:
 
 ```text
 Super + Shift + /?
 ```
 
-Os textos completos ficam em:
+The full texts are located in:
 
 - `src/config/hypr/docs/cheatsheets/pt.txt`
 - `src/config/hypr/docs/cheatsheets/en.txt`

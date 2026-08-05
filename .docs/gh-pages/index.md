@@ -10,30 +10,30 @@ permalink: /
 
 [![GitHub Release](https://img.shields.io/github/v/release/williamcanin/blasphemous-desktop?style=flat&color=3aa99f&label=Release)](https://github.com/williamcanin/blasphemous-desktop/releases)
 
-Configuração pessoal de desktop Wayland baseada em [Hyprland](https://hypr.land), com foco em um
-ambiente leve, direto e produtivo para [Arch Linux](https://archlinux.org) e [Fedora](https://fedoraproject.org) de [William C. Canin](https://williamcanin.github.io/).
+Personal Wayland desktop configuration based on [Hyprland](https://hypr.land), focused on a
+lightweight, straightforward and productive environment for [Arch Linux](https://archlinux.org) and [Fedora](https://fedoraproject.org) by [William C. Canin](https://williamcanin.github.io/).
 
-O repositório reúne os arquivos de configuração, scripts de automação, temas, fontes e atalhos usados no meu setup diário.
+The repository gathers the configuration files, automation scripts, themes, fonts and shortcuts used in my daily setup.
 
-O visual combina **Hyprland** com bordas discretas, blur, sombras, wallpaper, tema para **GTK/Rofi/terminais**, **Waybar** no topo, painel lateral de informações do sistema e uma sidebar na direita com **Quickshell/QML**.
+The look combines **Hyprland** with subtle borders, blur, shadows, wallpaper, a theme for **GTK/Rofi/terminals**, **Waybar** on top, a system information side panel and a right sidebar built with **Quickshell/QML**.
 
-## Documentação
+## Documentation
 
-- [Features e Componentes]({{ '/features/' | relative_url }}) — o que o ambiente oferece e quais ferramentas compõem o setup.
-- [Temas]({{ '/themes/' | relative_url }}) — os 11 temas inspirados em [Blasphemous I](https://thegamekitchen.com/blasphemous) e [Blasphemous II](https://www.blasphemous2game.com/), como trocar e a estrutura de arquivos.
-- [Galeria de Temas]({{ '/gallery/' | relative_url }}) — prévia visual de cada tema.
-- [Uso no dia a dia]({{ '/usage/' | relative_url }}) — sidebar, scripts e atalhos de teclado.
-- [Instalação]({{ '/install/' | relative_url }}) — requisitos e como instalar (online ou offline).
-- [Estrutura e Configurações]({{ '/structure/' | relative_url }}) — organização dos arquivos e ajustes de sistema.
+- [Features and Components]({{ '/features/' | relative_url }}) — what the environment offers and which tools make up the setup.
+- [Themes]({{ '/themes/' | relative_url }}) — the 11 themes inspired by [Blasphemous I](https://thegamekitchen.com/blasphemous) and [Blasphemous II](https://www.blasphemous2game.com/), how to switch and the file structure.
+- [Theme Gallery]({{ '/gallery/' | relative_url }}) — visual preview of each theme.
+- [Daily usage]({{ '/usage/' | relative_url }}) — sidebar, scripts and keyboard shortcuts.
+- [Installation]({{ '/install/' | relative_url }}) — requirements and how to install (online or offline).
+- [Structure and Settings]({{ '/structure/' | relative_url }}) — file organization and system tweaks.
 
-## Instalação rápida
+## Quick installation
 
 ```sh
 sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)"
 ```
 
-Versões específicas, instalação offline e demais detalhes: veja [Instalação]({{ '/install/' | relative_url }}).
+Specific versions, offline installation and further details: see [Installation]({{ '/install/' | relative_url }}).
 
-## Licença
+## License
 
-Veja [LICENSE](https://github.com/williamcanin/blasphemous-desktop/blob/main/LICENSE).
+See [LICENSE](https://github.com/williamcanin/blasphemous-desktop/blob/main/LICENSE).

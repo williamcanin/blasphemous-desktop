@@ -4,15 +4,14 @@
 <meta name="description" content="{{ site.description }}">
 
 <!--
-  Estilo "GitHub markdown" para o site inteiro:
-  - github-markdown-css: replica a tipografia/cores/listas/tabelas do
-    Markdown renderizado no próprio GitHub (inclusive modo claro/escuro
-    automático, via prefers-color-scheme).
-  - github.css (rouge/pygments theme): syntax highlight dos blocos de
-    código igual ao usado pelo GitHub.
-  - site.css: nosso CSS próprio, só com o "container" da página (largura,
-    espaçamento, fundo) — tudo dentro de ".markdown-body" fica por conta
-    do github-markdown-css.
+  "GitHub markdown" style for the whole site:
+  - github-markdown-css: replicates the typography/colors/lists/tables of the
+    Markdown rendered on GitHub itself (including automatic light/dark mode,
+    via prefers-color-scheme).
+  - github.css (rouge/pygments theme): syntax highlighting for code blocks,
+    same as the one used by GitHub.
+  - site.css: our own CSS, only the page "container" (width, spacing, background)
+    — everything inside ".markdown-body" is handled by github-markdown-css.
 -->
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown-light.css">
@@ -21,5 +20,5 @@
 
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 
-<!-- CSS específico da galeria de temas (lightbox), só afeta /gallery/ -->
+<!-- Theme gallery specific CSS (lightbox), only affects /gallery/ -->
 <link rel="stylesheet" href="{{ '/assets/css/gallery.css' | relative_url }}">

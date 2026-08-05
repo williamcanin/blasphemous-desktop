@@ -1,69 +1,69 @@
 ---
 layout: base
-title: Estrutura e Configurações
+title: Structure and Settings
 permalink: /structure/
 ---
 
 <!-- markdownlint-disable MD025 MD033 -->
 
-<a href="{{ '/' | relative_url }}">&larr; Voltar para HOME</a>
+<a href="{{ '/' | relative_url }}">&larr; Back to HOME</a>
 
-# Estrutura e Configurações
+# Structure and Settings
 
-## Estrutura
+## Structure
 
 ```text
 src/
   config/
     hypr/                Hyprland, Hyprpaper, Hypridle, Hyprlock, scripts, docs
-    waybar/              Barra superior, painel sysinfo, estilos e scripts
-    quickshell/          Sidebar direita em QML/Quickshell (10 cards)
-    rofi/                Launcher, seletor de temas, menus, scripts
-    wofi/                Launcher alternativo
-    wlogout/             Tela de logout
-    kitty/               Terminal principal com suporte a temas
-    foot/                Terminal alternativo
-    superfile/           File manager TUI padrão (spf), config, hotkeys e temas
-    yazi/                File manager TUI alternativo com flavors e keymaps custom
-    dunst/               Notificações com regras por aplicativo
-    btop/ bottom/        Monitores de sistema com temas
-    snappy-switcher/     Alternância de janelas Alt+Tab
-    environment.d/       Variáveis de ambiente Wayland
-    term/                Opções compartilhadas do shell
-    gtk-3.0/ gtk-4.0/    Temas e configurações GTK3/GTK4
-    blasphemous-desktop/      Tema ativo, .active-theme, .gtk-mode, .blasphemous-desktop-bootstrap e biblioteca shell (sh/)
-  fonts/                 Font Awesome e Terminus local
+    waybar/              Top bar, sysinfo panel, styles and scripts
+    quickshell/          Right sidebar in QML/Quickshell (10 cards)
+    rofi/                Launcher, theme selector, menus, scripts
+    wofi/                Alternative launcher
+    wlogout/             Logout screen
+    kitty/               Main terminal with theme support
+    foot/                Alternative terminal
+    superfile/           Default TUI file manager (spf), config, hotkeys and themes
+    yazi/                Alternative TUI file manager with flavors and custom keymaps
+    dunst/               Notifications with per-app rules
+    btop/ bottom/        System monitors with themes
+    snappy-switcher/     Alt+Tab window switching
+    environment.d/       Wayland environment variables
+    term/                Shared shell options
+    gtk-3.0/ gtk-4.0/    GTK3/GTK4 themes and settings
+    blasphemous-desktop/      Active theme, .active-theme, .gtk-mode, .blasphemous-desktop-bootstrap and shell library (sh/)
+  fonts/                 Local Font Awesome and Terminus
 ```
 
-## Configurações importantes
+## Important settings
 
-### Teclado e idioma
+### Keyboard and language
 
-Layout `br,us`, variante `abnt2` e alternância com `Alt+Shift`. Suporte bilíngue Português/Inglês.
+`br,us` layout, `abnt2` variant and `Alt+Shift` to switch. Bilingual Portuguese/English support.
 
-### Sessão Wayland
+### Wayland session
 
-Variáveis em `environment.d/wayland.conf` priorizam execução nativa Wayland para Qt, Firefox, Electron, SDL2, Java e LibreOffice.
+Variables in `environment.d/wayland.conf` prioritize native Wayland execution for Qt, Firefox, Electron, SDL2, Java and LibreOffice.
 
 ### Autostart
 
-Ao iniciar o Hyprland, `init.sh --started` sobe:
+When Hyprland starts, `init.sh --started` brings up:
 
 - `hyprpaper`, `hypridle`
-- Waybar superior + Waybar sysinfo
+- Top Waybar + Waybar sysinfo
 - `qs -c sidebar-right` (Quickshell sidebar)
 - `dunst`, `snappy-switcher --daemon`
-- `cliphist` watchers (texto e imagem)
-- `hyprpolkitagent` com estilo Qt/QML `org.hyprland.style`
+- `cliphist` watchers (text and image)
+- `hyprpolkitagent` with Qt/QML style `org.hyprland.style`
 
-### Login via TTY
+### TTY login
 
-`src/config/blasphemous-desktop/.blasphemous-desktop-bootstrap` é o ponto de entrada único (instalado em `~/.config/.blasphemous-desktop-bootstrap`) que carrega a biblioteca shell. O script `.tools/setup.sh` é o instalador/uninstaller único, compatível com os comandos do Makefile e com instalação remota via `curl | sh`.
+`src/config/blasphemous-desktop/.blasphemous-desktop-bootstrap` is the single entry point (installed as `~/.config/.blasphemous-desktop-bootstrap`) that loads the shell library. The `.tools/setup.sh` script is the single installer/uninstaller, compatible with the Makefile commands and with remote installation via `curl | sh`.
 
 ### XWayland
 
-`xwayland.enabled = false`. Se precisar, ative em `hyprland.lua`.
+`xwayland.enabled = false`. If needed, enable it in `hyprland.lua`.
 
-### Wallpaper e lockscreen
+### Wallpaper and lockscreen
 
-Wallpapers em `src/config/hypr/wallpapers/`. O lockscreen usa o wallpaper com blur gerado por ImageMagick.
+Wallpapers are in `src/config/hypr/wallpapers/`. The lockscreen uses the wallpaper blurred by ImageMagick.

@@ -13,9 +13,9 @@ body {
   justify-content: center;
 }
 
-/* Container que centraliza o conteúdo, no estilo da página de um arquivo
-   .md renderizado no GitHub (largura confortável de leitura + respiro nas
-   bordas, inclusive no celular). */
+/* Container that centers the content, styled like a rendered .md file page
+   on GitHub (comfortable reading width + breathing room at the edges,
+   including on mobile). */
 .page {
   width: 100%;
   max-width: 900px;
@@ -31,8 +31,8 @@ body {
   margin: 32px 0;
 }
 
-/* Rodapé discreto, parecido com a área de metadados no fim de um README
-   no GitHub. */
+/* Subtle footer, similar to the metadata area at the end of a README
+   on GitHub. */
 .markdown-body hr + p {
   color: #59636e;
   font-size: 13px;

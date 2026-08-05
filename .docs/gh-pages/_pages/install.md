@@ -1,83 +1,83 @@
 ---
 layout: base
-title: Instalação
+title: Installation
 permalink: /install/
 ---
 
-<a href="{{ '/' | relative_url }}">&larr; Voltar para HOME</a>
+<a href="{{ '/' | relative_url }}">&larr; Back to HOME</a>
 
-# Instalação
+# Installation
 
-## Requisitos
+## Requirements
 
-- **Arch Linux** ou **Fedora** 41+.
-- Sessão Wayland com `systemd`.
-- Placa de vídeo e drivers compatíveis com Wayland/Hyprland.
+- **Arch Linux** or **Fedora** 41+.
+- Wayland session with `systemd`.
+- Graphics card and drivers compatible with Wayland/Hyprland.
 
-> Nota: os configs incluem ajustes para NVIDIA e Nouveau, como
+> Note: the configs include tweaks for NVIDIA and Nouveau, such as
 > `WLR_NO_HARDWARE_CURSORS`, `WLR_RENDERER_ALLOW_SOFTWARE`, `GBM_BACKEND=nvidia-drm`
-> e `LIBVA_DRIVER_NAME=nvidia`. Revise esses valores se usar outra GPU.
+> and `LIBVA_DRIVER_NAME=nvidia`. Review these values if you use a different GPU.
 
-## Instalador
+## Installer
 
-O script `.tools/setup.sh` funciona tanto como instalador local quanto como instalador remoto via GitHub Releases.
+The `.tools/setup.sh` script works both as a local installer and as a remote installer via GitHub Releases.
 
-**Instalação online (RECOMENDADO) — baixa a última release estável:**
+**Online installation (RECOMMENDED) — downloads the latest stable release:**
 
 ```sh
 sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)"
 ```
 
-Liste as versões disponíveis:
+List the available versions:
 
 ```sh
 sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- --releases
 ```
 
-Instalar uma versão específica:
+Install a specific version:
 
 ```sh
 sh -c "$(curl -fsSL https://williamcanin.github.io/blasphemous-desktop/setup.sh)" -- 0.2.0
 ```
 
-**Instalação offline (a partir do repositório clonado):**
+**Offline installation (from a cloned repository):**
 
 ```sh
 git clone --depth=1 https://github.com/williamcanin/blasphemous-desktop.git && cd blasphemous-desktop && sh .tools/setup.sh --install
 ```
 
-> Nota: Essa forma de instalação usa a branch principal (`main`), que pode conter arquivos com bugs por falta de revisão. Prefira sempre a opção `RECOMENDADA` que usa releases estáveis.
+> Note: this installation method uses the `main` branch, which may contain files with bugs due to lack of review. Always prefer the `RECOMMENDED` option, which uses stable releases.
 >
-> Se você mantiver o repositório, atualize antes de instalar:
+> If you keep the repository, update it before installing:
 
 ```sh
 sh .tools/setup.sh --upgrade
 ```
 
-Comandos úteis no modo offline:
+Useful commands in offline mode:
 
 ```sh
-make help          # ou: sh .tools/setup.sh --help
-make version       # ou: sh .tools/setup.sh --version
-make install       # ou: sh .tools/setup.sh --install
-make upgrade       # ou: sh .tools/setup.sh --upgrade
-make uninstall     # ou: sh .tools/setup.sh --uninstall [--dry-run]
+make help          # or: sh .tools/setup.sh --help
+make version       # or: sh .tools/setup.sh --version
+make install       # or: sh .tools/setup.sh --install
+make upgrade       # or: sh .tools/setup.sh --upgrade
+make uninstall     # or: sh .tools/setup.sh --uninstall [--dry-run]
 make set-permissions
 ```
 
-O instalador detecta automaticamente a distribuição via `/etc/os-release` — sem necessidade de seleção manual.
+The installer automatically detects the distribution via `/etc/os-release` — no manual selection needed.
 
-Na instalação remota (`sh -c "$(curl ...)"`), o instalador também verifica o shell padrão do usuário e oferece trocar para `/usr/bin/zsh` se necessário.
+In remote installation (`sh -c "$(curl ...)"`), the installer also checks the user's default shell and offers to switch to `/usr/bin/zsh` if needed.
 
-Em resumo, o instalador:
+In summary, the installer:
 
-- **Arch**: instala `yay` (se necessário) e pacotes via AUR;
-- **Fedora**: ativa COPR `solopasha/hyprland` e instala pacotes via `dnf`;
-- copia `src/config/*` para `~/.config`;
-- cria backup dos diretórios existentes em `~/.config/*.bak.DATA`;
-- copia `src/fonts` para `~/.local/share/fonts`;
-- atualiza cache de fontes;
-- adiciona `~/.config/term/options.sh` ao shell;
-- aplica Firefox como navegador padrão e tema GTK escuro.
+- **Arch**: installs `yay` (if needed) and packages via AUR;
+- **Fedora**: enables the `solopasha/hyprland` COPR and installs packages via `dnf`;
+- copies `src/config/*` to `~/.config`;
+- backs up existing directories in `~/.config/*.bak.DATE`;
+- copies `src/fonts` to `~/.local/share/fonts`;
+- updates the font cache;
+- adds `~/.config/term/options.sh` to the shell;
+- applies Firefox as the default browser and a dark GTK theme.
 
-> **Fedora**: `hyprshutdown` é compilado do fonte, `rofi-calc` é substituído por `qalculate-gtk`.
+> **Fedora**: `hyprshutdown` is compiled from source, `rofi-calc` is replaced by `qalculate-gtk`.

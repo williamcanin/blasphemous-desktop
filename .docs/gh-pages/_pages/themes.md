@@ -1,18 +1,18 @@
 ---
 layout: base
-title: Temas
+title: Themes
 permalink: /themes/
 ---
 
-<a href="{{ '/' | relative_url }}">&larr; Voltar para HOME</a>
+<a href="{{ '/' | relative_url }}">&larr; Back to HOME</a>
 
-# Temas
+# Themes
 
-O projeto possui **11 temas** inspirados na série *Blasphemous* e *Blasphemous II*, com suporte completo a:
+The project has **11 themes** inspired by the *Blasphemous* and *Blasphemous II* series, with full support for:
 
-- Hyprland (bordas, sombras, gaps)
-- Waybar (barra superior + sysinfo)
-- Quickshell (sidebar direita)
+- Hyprland (borders, shadows, gaps)
+- Waybar (top bar + sysinfo)
+- Quickshell (right sidebar)
 - Rofi
 - Kitty
 - Btop / Bottom
@@ -22,66 +22,66 @@ O projeto possui **11 temas** inspirados na série *Blasphemous* e *Blasphemous 
 - Yazi (flavor)
 - Hyprlock
 
-## Lista de Temas
+## Theme list
 
-| # | Tema | Tipo |
+| # | Theme | Type |
 | --- | --- | --- |
-| 01 | Blasphemous - Penitent | Monocromático preto + `#e0e0e0` |
-| 02 | Blasphemous - Echoes Of Salt | Escuro teal/cyan |
-| 03 | Blasphemous - Fragment Of Guilt | Escuro olive/teal |
-| 04 | Blasphemous - Kneeling Stone | Escuro roxo (Catppuccin-like) |
-| 05 | Blasphemous - Requiem Aeternam | Monocromático preto + `#ba8540` |
-| 06 | Blasphemous - Ten Piedad | Escuro terroso/warm |
-| 07 | Blasphemous II - Mea Culpa | Escuro warm neutro |
-| 08 | Blasphemous II - Repose Of The Silent One | Escuro teal/azulado |
-| 09 | Blasphemous II - Red Forest | Claro bege/cinza |
-| 10 | Blasphemous II - The Third Sin | Escuro navy/teal |
-| 11 | Blasphemous II - Main Menu | Escuro azul-cinza com acentos dourados (`#996548`). Baseado na tela de menu do jogo. |
+| 01 | Blasphemous - Penitent | Black monochrome + `#e0e0e0` |
+| 02 | Blasphemous - Echoes Of Salt | Dark teal/cyan |
+| 03 | Blasphemous - Fragment Of Guilt | Dark olive/teal |
+| 04 | Blasphemous - Kneeling Stone | Dark purple (Catppuccin-like) |
+| 05 | Blasphemous - Requiem Aeternam | Black monochrome + `#ba8540` |
+| 06 | Blasphemous - Ten Piedad | Dark earthy/warm |
+| 07 | Blasphemous II - Mea Culpa | Dark warm neutral |
+| 08 | Blasphemous II - Repose Of The Silent One | Dark teal/bluish |
+| 09 | Blasphemous II - Red Forest | Light beige/gray |
+| 10 | Blasphemous II - The Third Sin | Dark navy/teal |
+| 11 | Blasphemous II - Main Menu | Dark blue-gray with golden accents (`#996548`). Based on the game's menu screen. |
 
-Veja o preview de cada tema na [Galeria de Temas]({{ '/gallery/' | relative_url }}).
+See the preview of each theme in the [Theme Gallery]({{ '/gallery/' | relative_url }}).
 
-## Como usar
+## How to use
 
 ```sh
-# Com seletor Rofi (menu interativo)
+# With the Rofi selector (interactive menu)
 theme-switch
 
-# Ou diretamente pelo nome
+# Or directly by name
 theme-switch blasphemous-echoes-of-salt
 ```
 
-O tema ativo é armazenado em:
+The active theme is stored in:
 
 ```text
 ~/.config/blasphemous-desktop/.active-theme
 ```
 
-## Estrutura de arquivos do tema
+## Theme file structure
 
 ```text
-src/config/hypr/themes/<theme>/theme.lua          # Bordas, gaps, sombras
-src/config/hypr/themes/<theme>/hyprlock.conf       # Cores do lockscreen
-src/config/hypr/themes/<theme>/hyprtoolkit.conf    # Paleta do hyprpolkitagent/Hypr* toolkit
-src/config/hypr/themes/<theme>/application-style.conf # Estilo Qt/QML dos apps Hypr*
-src/config/waybar/themes/<theme>/theme.css         # Cores da waybar topo
-src/config/waybar/themes/<theme>/sysinfo-theme.css # Cores do painel sysinfo
-src/config/quickshell/sidebar-right/themes/<theme>/Theme.qml  # Cores da sidebar QML
-src/config/rofi/themes/<theme>/theme.rasi          # Cores do launcher
-src/config/waybar/mode.css                         # Override dinâmico do modo light (gerado)
-src/config/rofi/mode.rasi                          # Override dinâmico do modo light (gerado)
-src/config/kitty/themes/<theme>/theme.conf         # Esquema de cores do terminal
-src/config/btop/themes/<theme>/theme.theme         # Cores do monitor de sistema
-src/config/bottom/themes/<theme>/bottom.toml       # Cores do btm
-src/config/dunst/themes/<theme>/dunstrc.theme      # Cores das notificações
-src/config/wlogout/themes/<theme>/theme.css        # Cores da tela de logout
-src/config/snappy-switcher/themes/<theme>/theme.ini # Cores do alternador de janelas
-src/config/superfile/theme/<theme>.toml            # Cores do file manager padrão
-src/config/yazi/themes/<theme>/theme.toml          # Flavor do file manager
+src/config/hypr/themes/<theme>/theme.lua          # Borders, gaps, shadows
+src/config/hypr/themes/<theme>/hyprlock.conf       # Lockscreen colors
+src/config/hypr/themes/<theme>/hyprtoolkit.conf    # hyprpolkitagent/Hypr* toolkit palette
+src/config/hypr/themes/<theme>/application-style.conf # Qt/QML style for Hypr* apps
+src/config/waybar/themes/<theme>/theme.css         # Top Waybar colors
+src/config/waybar/themes/<theme>/sysinfo-theme.css # Sysinfo panel colors
+src/config/quickshell/sidebar-right/themes/<theme>/Theme.qml  # QML sidebar colors
+src/config/rofi/themes/<theme>/theme.rasi          # Launcher colors
+src/config/waybar/mode.css                         # Dynamic light mode override (generated)
+src/config/rofi/mode.rasi                          # Dynamic light mode override (generated)
+src/config/kitty/themes/<theme>/theme.conf         # Terminal color scheme
+src/config/btop/themes/<theme>/theme.theme         # System monitor colors
+src/config/bottom/themes/<theme>/bottom.toml       # btm colors
+src/config/dunst/themes/<theme>/dunstrc.theme      # Notification colors
+src/config/wlogout/themes/<theme>/theme.css        # Logout screen colors
+src/config/snappy-switcher/themes/<theme>/theme.ini # Window switcher colors
+src/config/superfile/theme/<theme>.toml            # Default file manager colors
+src/config/yazi/themes/<theme>/theme.toml          # File manager flavor
 ```
 
 ## Wallpapers
 
-Cada tema possui um wallpaper correspondente em `src/config/hypr/wallpapers/`:
+Each theme has a matching wallpaper in `src/config/hypr/wallpapers/`:
 
 ```text
 blasphemous-echoes-of-salt.jpeg
@@ -101,6 +101,6 @@ blasphemous-requiem-aeternam.jpg
 
 | Flavor | Base |
 | --- | --- |
-| `flexoki-dark` | Escuro (`#100F0F`) com accent cyan |
-| `flexoki-fragment-of-guilt` | Claro (`#EEF7F4`) com accent verde |
-| `repose-of-the-silent-one` | Escuro (`#141E1E`) com accent teal |
+| `flexoki-dark` | Dark (`#100F0F`) with cyan accent |
+| `flexoki-fragment-of-guilt` | Light (`#EEF7F4`) with green accent |
+| `repose-of-the-silent-one` | Dark (`#141E1E`) with teal accent |
